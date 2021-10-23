@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PetShop</string>
+    <string name="servicos">Serviços</string>
+    <string name="cadastros">Cadastros</string>
+    <string name="todo">TODO</string>
+    <string name="novoservico">Novo Serviço</string>
+</resources>

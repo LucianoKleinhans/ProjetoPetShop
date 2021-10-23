@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/BtSelecionaDono"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Selecionar Dono"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btSelecionaDono2"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:text="Selecionar Serviço"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <Button
+        android:id="@+id/btCancelar"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="50dp"
+        android:text="Cancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btConcluir"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btConcluir"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="50dp"
+        android:text="Concluir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btCancelar" />
+
+    <TextView
+        android:id="@+id/TextNome"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="10dp"
+        android:text="Nome:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtSelecionaDono" />
+
+    <TextView
+        android:id="@+id/TextDesconto"
+        android:layout_width="108dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="2dp"
+        android:text="Desconto:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/TextValorDesconto"
+        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
+
+    <TextView
+        android:id="@+id/textTotal"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:text="Total:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/TextValorTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextValorSubTotal" />
+
+    <TextView
+        android:id="@+id/TextSubTotal"
+        android:layout_width="108dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="6dp"
+        android:text="Sub-Total:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/TextValorSubTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
+
+    <EditText
+        android:id="@+id/TextValorDesconto"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="4dp"
+        android:inputType="number"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_dynamic"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/TextValorSubTotal"
+        android:layout_width="98dp"
+        android:layout_height="35dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/TextDesconto"
+        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
+
+    <TextView
+        android:id="@+id/TextValorTotal"
+        android:layout_width="98dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="120dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextDesconto" />
+
+    <TextView
+        android:id="@+id/TextNomeDono"
+        android:layout_width="351dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TextNome"
+        app:layout_constraintTop_toBottomOf="@+id/BtSelecionaDono" />
+
+    <TextView
+        android:id="@+id/TextEnderecoDono"
+        android:layout_width="330dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TextEndereco"
+        app:layout_constraintTop_toBottomOf="@+id/TextNomeDono" />
+
+    <TextView
+        android:id="@+id/TextTelefone1Dono"
+        android:layout_width="330dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TextTelefone"
+        app:layout_constraintTop_toBottomOf="@+id/TextEnderecoDono" />
+
+    <TextView
+        android:id="@+id/TextEndereco"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:text="Endereço:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextNome" />
+
+    <TextView
+        android:id="@+id/TextTelefone"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:text="Telefone:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextEndereco" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        app:layout_constraintEnd_toStartOf="@+id/BtNovoPet"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextTelefone1Dono"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/BtNovoPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="ADD PET"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextTelefone1Dono" />
+
+    <ListView
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btSelecionaDono2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "594475089840",
+    "project_id": "petshop-da27f",
+    "storage_bucket": "petshop-da27f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594475089840:android:e123ac2be86d715c8d2075",
+        "android_client_info": {
+          "package_name": "br.lajotasoftware.petshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594475089840-hv2h60okg52vukk6gnplc0hj2haekqe0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.lajotasoftware.petshop",
+            "certificate_hash": "16906494033a3e70fa3631b08ae6d0c3959eb8f4"
+          }
+        },
+        {
+          "client_id": "594475089840-r7r7o54bhahklrbisp721dbctass1v8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYUIdXyhqt1A_24gBHAuXP4R1gSvHcepY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594475089840-r7r7o54bhahklrbisp721dbctass1v8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
