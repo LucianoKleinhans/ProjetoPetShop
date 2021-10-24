@@ -13,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Selecionar Dono"
+        android:text="@string/selecionar_dono"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,13 +23,12 @@
         android:layout_width="400dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
-        android:text="Selecionar Serviço"
+        android:text="@string/selecionar_servi_o"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/btCancelar"
@@ -37,8 +36,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="50dp"
-        android:text="Cancelar"
+        android:layout_marginBottom="25dp"
+        android:text="@string/cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btConcluir"
         app:layout_constraintStart_toStartOf="parent" />
@@ -49,8 +48,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="50dp"
-        android:text="Concluir"
+        android:layout_marginBottom="25dp"
+        android:text="@string/concluir"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btCancelar" />
@@ -61,16 +60,40 @@
         android:layout_height="20dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="10dp"
-        android:text="Nome:"
+        android:text="@string/nome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BtSelecionaDono" />
+
+    <TextView
+        android:id="@+id/textNomePet"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:text="@string/nome"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <TextView
+        android:id="@+id/textIdadePet"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:text="@string/idade"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textNomePet" />
+
+    <TextView
+        android:id="@+id/textRacaPet"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:text="@string/raca"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textIdadePet" />
 
     <TextView
         android:id="@+id/TextDesconto"
         android:layout_width="108dp"
         android:layout_height="35dp"
         android:layout_marginEnd="2dp"
-        android:text="Desconto:"
+        android:text="@string/desconto"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/TextValorDesconto"
         app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
@@ -82,7 +105,7 @@
         android:layout_marginStart="120dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="1dp"
-        android:text="Total:"
+        android:text="@string/total"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/TextValorTotal"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +116,7 @@
         android:layout_width="108dp"
         android:layout_height="35dp"
         android:layout_marginStart="6dp"
-        android:text="Sub-Total:"
+        android:text="@string/sub_total"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/TextValorSubTotal"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,8 +158,28 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/TextNome"
         app:layout_constraintTop_toBottomOf="@+id/BtSelecionaDono" />
+
+    <TextView
+        android:id="@+id/textNomePet2"
+        android:layout_width="270dp"
+        android:layout_height="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textNomePet"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <TextView
+        android:id="@+id/textIdadePet2"
+        android:layout_width="270dp"
+        android:layout_height="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textIdadePet"
+        app:layout_constraintTop_toBottomOf="@+id/textNomePet2" />
+
+    <TextView
+        android:id="@+id/textRacaPet2"
+        android:layout_width="270dp"
+        android:layout_height="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textRacaPet"
+        app:layout_constraintTop_toBottomOf="@+id/textIdadePet2" />
 
     <TextView
         android:id="@+id/TextEnderecoDono"
@@ -161,7 +204,7 @@
         android:layout_width="70dp"
         android:layout_height="20dp"
         android:layout_marginStart="6dp"
-        android:text="Endereço:"
+        android:text="@string/endere_o"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextNome" />
 
@@ -170,7 +213,7 @@
         android:layout_width="70dp"
         android:layout_height="20dp"
         android:layout_marginStart="6dp"
-        android:text="Telefone:"
+        android:text="@string/telefone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextEndereco" />
 
@@ -191,7 +234,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:text="ADD PET"
+        android:text="@string/add_pet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextTelefone1Dono" />
 
@@ -204,5 +247,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btSelecionaDono2" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="77dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

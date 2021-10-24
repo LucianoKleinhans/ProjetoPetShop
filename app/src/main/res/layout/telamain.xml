@@ -10,37 +10,44 @@
         android:id="@+id/BtServicos"
         android:layout_width="400dp"
         android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="#930000"
         android:text="@string/servicos"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ImgLogo" />
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <Button
         android:id="@+id/BtCadastros"
         android:layout_width="400dp"
         android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="#930000"
+        android:foregroundTint="@color/black"
         android:text="@string/cadastros"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BtServicos" />
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <ImageView
-        android:id="@+id/ImgLogo"
-        android:layout_width="378dp"
-        android:layout_height="488dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@string/todo"
+        android:id="@+id/imageView4"
+        android:layout_width="500dp"
+        android:layout_height="800dp"
+        android:background="@color/black"
+        android:backgroundTint="#000000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintVertical_bias="0.507"
+        app:srcCompat="@mipmap/Logo_foreground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
