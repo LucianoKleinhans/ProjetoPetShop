@@ -8,103 +8,107 @@
     tools:context=".MainActivity">
 
     <Button
-        android:backgroundTint="#730000"
         android:id="@+id/btCancelarDonoCad"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
         android:layout_marginBottom="50dp"
-        android:text="@string/cancelar"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="#730000"
+        android:text="@string/bt_cancelar_caddono"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:backgroundTint="#006400"
         android:id="@+id/btSalvarDonoCad"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginBottom="50dp"
-        android:text="@string/salvar_cadastro"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="#006400"
+        android:text="@string/bt_salvarcadastro_caddono"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"
         android:id="@+id/textCPFDonoCad"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
-        android:hint="@string/cpf"
+        android:hint="@string/text_cpfdono_caddono"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textEndDonoCad" />
 
     <EditText
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"
         android:id="@+id/textEndDonoCad"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
-        android:hint="@string/endere_o"
+        android:hint="@string/text_enderecodono_caddono"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTelDonoCad" />
 
     <EditText
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"
         android:id="@+id/TextNomeDonoCad"
         android:layout_width="400dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
-        android:hint="@string/nome"
+        android:hint="@string/text_nomedono_caddono"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"
         android:id="@+id/textTelDonoCad"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
-        android:hint="@string/telefone"
+        android:hint="@string/text_telefonedono_caddono"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextNomeDonoCad" />
 
     <TextView
-        android:textColor="@color/white"
         android:id="@+id/TextPets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:text="@string/pets"
+        android:text="@string/text_listapets_caddono"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCPFDonoCad" />
 
@@ -124,15 +128,16 @@
         app:layout_constraintTop_toBottomOf="@+id/TextPets" />
 
     <Button
-        android:backgroundTint="@color/teal_700"
         android:id="@+id/BtAddPetCadDono"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginBottom="1dp"
-        android:text="@string/adicionar_pets"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="@string/br_adicionarpets_caddono"
         app:layout_constraintBottom_toTopOf="@+id/btCancelarDonoCad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

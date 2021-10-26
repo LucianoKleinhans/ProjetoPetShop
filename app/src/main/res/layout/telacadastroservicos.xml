@@ -11,37 +11,39 @@
         android:id="@+id/BtSelecionaDono"
         android:layout_width="400dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:backgroundTint="@color/teal_700"
-        android:text="@string/selecionar_dono"
+        android:text="@string/bt_selecionardono_cadservico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btSelecionaDono2"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:backgroundTint="@color/teal_700"
-        android:text="@string/selecionar_servi_o"
+        android:text="@string/bt_selecionarservico_cadservico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btCancelar"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="1dp"
         android:layout_marginBottom="15dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="5dp"
         android:backgroundTint="#730000"
-        android:text="@string/cancelar"
+        android:text="@string/bt_cancelar_cadservico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btConcluir"
         app:layout_constraintStart_toStartOf="parent" />
@@ -50,11 +52,11 @@
         android:id="@+id/btConcluir"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginBottom="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="1dp"
         android:backgroundTint="#006400"
-        android:text="@string/concluir"
+        android:text="@string/bt_concluir_cadservico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btCancelar" />
@@ -65,7 +67,7 @@
         android:layout_height="20dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="10dp"
-        android:text="@string/nome"
+        android:text="@string/text_nomedono_cadservico"
         android:textColor="#ffffff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BtSelecionaDono" />
@@ -74,7 +76,7 @@
         android:id="@+id/textNomePet"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:text="@string/nome"
+        android:text="@string/text_nomepet_cadservico"
         android:textColor="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
@@ -83,7 +85,7 @@
         android:id="@+id/textIdadePet"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:text="@string/idade"
+        android:text="@string/text_idadepet_cadservico"
         android:textColor="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textNomePet" />
@@ -92,7 +94,7 @@
         android:id="@+id/textRacaPet"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:text="@string/raca"
+        android:text="@string/text_racapet_cadservico"
         android:textColor="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textIdadePet" />
@@ -102,20 +104,21 @@
         android:layout_width="108dp"
         android:layout_height="35dp"
         android:layout_marginEnd="2dp"
-        android:text="@string/desconto"
+        android:text="@string/text_desconto_cadservico"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/TextValorDesconto"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
+        app:layout_constraintStart_toEndOf="@+id/TextValorSubTotal"
+        app:layout_constraintTop_toBottomOf="@+id/TabelaServicos" />
 
     <TextView
         android:id="@+id/textTotal"
         android:layout_width="60dp"
         android:layout_height="35dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginStart="120dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="1dp"
-        android:text="@string/total"
+        android:text="@string/text_total_cadservico"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/TextValorTotal"
@@ -127,23 +130,26 @@
         android:layout_width="108dp"
         android:layout_height="35dp"
         android:layout_marginStart="6dp"
-        android:text="@string/sub_total"
+        android:text="@string/text_subtotal_cadservico"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/TextValorSubTotal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
+        app:layout_constraintTop_toBottomOf="@+id/TabelaServicos" />
 
     <EditText
         android:id="@+id/TextValorDesconto"
         android:layout_width="85dp"
         android:layout_height="35dp"
         android:layout_marginEnd="4dp"
+        android:layout_marginStart="2dp"
+        android:importantForAutofill="no"
         android:inputType="number"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic"
+        app:layout_constraintStart_toEndOf="@+id/TextDesconto"
+        app:layout_constraintTop_toBottomOf="@+id/TabelaServicos"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <TextView
@@ -153,14 +159,15 @@
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/TextDesconto"
-        app:layout_constraintTop_toBottomOf="@+id/_dynamic" />
+        app:layout_constraintStart_toEndOf="@+id/TextSubTotal"
+        app:layout_constraintTop_toBottomOf="@+id/TabelaServicos" />
 
     <TextView
         android:id="@+id/TextValorTotal"
         android:layout_width="98dp"
         android:layout_height="35dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="120dp"
+        android:layout_marginTop="10dp"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -225,7 +232,7 @@
         android:layout_width="70dp"
         android:layout_height="20dp"
         android:layout_marginStart="6dp"
-        android:text="@string/endere_o"
+        android:text="@string/text_enderecodono_cadservico"
         android:textColor="#ffffff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextNome" />
@@ -235,7 +242,7 @@
         android:layout_width="70dp"
         android:layout_height="20dp"
         android:layout_marginStart="6dp"
-        android:text="@string/telefone"
+        android:text="@string/text_telefonedono_cadservico"
         android:textColor="#ffffff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextEndereco" />
@@ -260,21 +267,22 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:backgroundTint="@color/teal_700"
-        android:text="@string/add_pet"
+        android:text="@string/bt_addpet_cadservico"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextTelefone1Dono" />
+        app:layout_constraintTop_toBottomOf="@+id/TextTelefone1Dono"
+        tools:ignore="TextContrastCheck" />
 
     <ListView
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"
+        android:id="@+id/TabelaServicos"
         android:layout_width="400dp"
         android:layout_height="250dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btSelecionaDono2" />
 
@@ -283,8 +291,9 @@
         android:layout_width="77dp"
         android:layout_height="69dp"
         android:layout_marginStart="6dp"
+        android:contentDescription="@string/img_pet_cadservico"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@mipmap/imgpetshop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

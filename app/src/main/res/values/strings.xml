@@ -1,34 +1,42 @@
 <resources>
-    <string name="app_name">PetShop</string>
-    <string name="servicos">Serviços</string>
-    <string name="cadastros">Cadastros</string>
-    <string name="todo">TODO</string>
-    <string name="novoservico">Novo Serviço</string>
-    <string name="nome">Nome:</string>
-    <string name="telefone">Telefone:</string>
-    <string name="endere_o">Endereço:</string>
-    <string name="cpf">CPF:</string>
-    <string name="salvar_cadastro">Salvar Cadastro</string>
-    <string name="adicionar_pets">Adicionar Pets</string>
-    <string name="cancelar">Cancelar</string>
-    <string name="pets">Pets:</string>
-    <string name="ra_a">Raça:</string>
-    <string name="esp_cie">Espécie:</string>
-    <string name="nome">Nome:</string>
-    <string name="data_de_nascimento">Data de nascimento:</string>
-    <string name="selecionar_dono">Selecionar Dono</string>
-    <string name="selecionar_servi_o">Selecionar Serviço</string>
-    <string name="cancelar">Cancelar</string>
-    <string name="concluir">Concluir</string>
-    <string name="nome">Nome:</string>
-    <string name="desconto">Desconto:</string>
-    <string name="total">Total:</string>
-    <string name="sub_total">Sub-Total:</string>
-    <string name="endere_o">Endereço:</string>
-    <string name="telefone">Telefone:</string>
-    <string name="add_pet">ADD PET</string>
-    <string name="observacoes">Observações:</string>
-    <string name="idade">Idade:</string>
-    <string name="raca">Raça:</string>
-    <string name="novo_servico">novo servico</string>
+    <string name="imgmain">imgmain</string>
+    <string name="bt_servico_main">Serviços</string>
+    <string name="bt_cadastros_main">Cadastros</string>
+
+    <string name="bt_novoservico_servico">Novo serviço</string>
+
+    <string name="bt_selecionardono_cadservico">Selecionar Dono</string>
+    <string name="bt_addpet_cadservico">Add Pet</string>
+    <string name="bt_selecionarservico_cadservico">Selecionar Serviço</string>
+    <string name="bt_concluir_cadservico">Concluir</string>
+    <string name="bt_cancelar_cadservico">Cancelar</string>
+    <string name="img_pet_cadservico">imgpet</string>
+    <string name="text_nomedono_cadservico">Nome:</string>
+    <string name="text_enderecodono_cadservico">Endereço:</string>
+    <string name="text_telefonedono_cadservico">Telefone:</string>
+    <string name="text_nomepet_cadservico">Nome:</string>
+    <string name="text_idadepet_cadservico">Idade:</string>
+    <string name="text_racapet_cadservico">Raça</string>
+    <string name="text_subtotal_cadservico">Subtotal:</string>
+    <string name="text_desconto_cadservico">Desconto:</string>
+    <string name="text_total_cadservico">Total:</string>
+
+    <string name="text_racapet_cadpet">Raça:</string>
+    <string name="text_nomepet_cadpet">Nome Pet:</string>
+    <string name="text_especiepet_cadpet">Espécie:</string>
+    <string name="text_datanascimentopet_cadpet">Data de nascimento:</string>
+    <string name="img_pet_cadpet">IMG</string>
+    <string name="text_observacoes_cadpet">Observações:</string>
+    <string name="bt_salvarcadastro_cadpet">Salvar cadastro</string>
+    <string name="bt_cancelarcadastro_cadpet">cancelar</string>
+
+    <string name="text_nomedono_caddono">Nome Dono:</string>
+    <string name="text_telefonedono_caddono">Telefone:</string>
+    <string name="text_enderecodono_caddono">Endereço:</string>
+    <string name="text_cpfdono_caddono">CPF:</string>
+    <string name="text_listapets_caddono">Pets:</string>
+    <string name="br_adicionarpets_caddono">Adicionar pets</string>
+    <string name="bt_cancelar_caddono">cancelar</string>
+    <string name="bt_salvarcadastro_caddono">salvar cadastro</string>
+    <string name="petshop">appname_petshop</string>
 </resources>

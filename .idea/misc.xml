@@ -22,10 +22,16 @@
         <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/layout/telaservicos.xml" value="0.3625" />
         <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/mipmap-anydpi-v26/LogoImg.xml" value="0.21875" />
         <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/mipmap-anydpi-v26/LogoImg_round.xml" value="0.21875" />
+        <entry key="..\:/Users/laboratorio/Desktop/802.222/ProjetoPetShop/app/src/main/res/layout/telacadastrodono.xml" value="0.25" />
+        <entry key="..\:/Users/laboratorio/Desktop/802.222/ProjetoPetShop/app/src/main/res/layout/telacadastropet.xml" value="0.25" />
+        <entry key="..\:/Users/laboratorio/Desktop/802.222/ProjetoPetShop/app/src/main/res/layout/telacadastroservicos.xml" value="0.33" />
+        <entry key="..\:/Users/laboratorio/Desktop/802.222/ProjetoPetShop/app/src/main/res/layout/telamain.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/laboratorio/Desktop/802.222/ProjetoPetShop/app/src/main/res/layout/telaservicos.xml" value="0.20930232558139536" />
+        <entry key="..\:/Users/laboratorio/Desktop/802.222/ProjetoPetShop/app/src/main/res/mipmap-anydpi-v26/LogoImgPetShop.xml" value="0.2203125" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
