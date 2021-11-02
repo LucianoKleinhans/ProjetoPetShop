@@ -23,7 +23,7 @@ public class telaservicos extends AppCompatActivity {
         databaseReference= firebaseDatabase.getReference();
     }
 
-    public void bt_servico_to_telamain (View view){
+    public void bt_finish_telaservicos (View view){
         finish();
     //    Intent it = new Intent(this, telamain.class);
     //    startActivity(it);

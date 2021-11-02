@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:backgroundTint="#202020"
-    tools:context=".activity.telacadastros">
+    tools:context=".activity.telaadicionaservico">
 
     <Button
         android:id="@+id/btvoltaraddserv"
@@ -14,8 +14,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="50dp"
-        android:onClick="bt_voltar_telaadicionaservico_to_telaselecionaservico"
         android:text="@string/bt_voltar_addservico"
+        android:onClick="bt_finish_telaadicionaservico"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textprecoserv" />
 

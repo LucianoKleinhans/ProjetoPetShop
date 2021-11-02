@@ -6,27 +6,27 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:backgroundTint="#202020"
-    tools:context=".activity.telacadastros">
+    tools:context=".activity.telaselecionaservico">
 
     <Button
-        android:id="@+id/btcadastrarservico"
+        android:id="@+id/btcadservico_selecionaservico"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
         android:layout_marginBottom="50dp"
         android:text="@string/bt_addnovoservico_selecionaservico"
-        android:onClick="bt_selecionaservico_to_adicionanovoservico"
+        android:onClick="bt_cadservico_telaselecionaservico_to_telaadicionaservico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btconfirmarservico"
+        android:id="@+id/btconfirmar_selecionaservico"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="50dp"
         android:text="@string/bt_confirmar_selecionaservico"
-        android:onClick="bt_selecionaservico_to_telacadastroservicos"
+        android:onClick="bt_confirmar_telaselecionaservico_to_telacadastroservicos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -38,7 +38,7 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/btcadastrarservico"
+        app:layout_constraintBottom_toTopOf="@+id/btcadservico_selecionaservico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

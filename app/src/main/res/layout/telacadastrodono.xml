@@ -15,7 +15,7 @@
         android:layout_marginStart="5dp"
         android:backgroundTint="#730000"
         android:text="@string/bt_cancelar_caddono"
-        android:onClick="bt_cancelar_telacadastrodono_to_telacadastros"
+        android:onClick="bt_finish_telacadastrodono"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

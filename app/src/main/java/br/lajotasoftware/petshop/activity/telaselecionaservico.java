@@ -24,12 +24,12 @@ public class telaselecionaservico extends AppCompatActivity {
         databaseReference= firebaseDatabase.getReference();
     }
 
-    public void bt_selecionaservico_to_adicionanovoservico (View view){
+    public void bt_cadservico_telaselecionaservico_to_telaadicionaservico (View view){
         Intent it = new Intent(this, telaadicionaservico.class);
         startActivity(it);
     }
 
-    public void bt_selecionaservico_to_telacadastroservicos (View view){
+    public void bt_confirmar_telaselecionaservico_to_telacadastroservicos (View view){
         Intent it = new Intent(this, telacadastroservicos.class);
         startActivity(it);
     }

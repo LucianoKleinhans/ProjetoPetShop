@@ -23,7 +23,7 @@ public class telacadastros extends AppCompatActivity{
         databaseReference= firebaseDatabase.getReference();
     }
 
-    public void bt_cadastros_to_telamain (View view){
+    public void bt_finish_telacadastros (View view){
         finish();
         //Intent it = new Intent(this, telamain.class);
         //startActivity(it);

@@ -46,7 +46,7 @@
         android:layout_marginEnd="1dp"
         android:backgroundTint="#730000"
         android:text="@string/bt_cancelar_cadservico"
-        android:onClick="bt_cancelar_telacadastroservicos_to_telaservico"
+        android:onClick="bt_finish_telacadastroservicos"
         app:layout_constraintEnd_toStartOf="@+id/btConcluir"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTotal" />

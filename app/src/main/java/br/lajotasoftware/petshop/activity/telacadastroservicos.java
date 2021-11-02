@@ -39,9 +39,10 @@ public class telacadastroservicos extends AppCompatActivity {
         startActivity(it);
     }
 
-    public void bt_cancelar_telacadastroservicos_to_telaservico (View view){
-        Intent it = new Intent(this, telaservicos.class);
-        startActivity(it);
+    public void bt_finish_telacadastroservicos (View view){
+        finish();
+        //Intent it = new Intent(this, telaservicos.class);
+        //startActivity(it);
     }
 
     public void bt_concluir_telacadastroservicos_to_telaservicos (View view){

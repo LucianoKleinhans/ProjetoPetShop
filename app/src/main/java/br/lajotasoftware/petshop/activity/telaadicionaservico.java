@@ -24,9 +24,10 @@ public class telaadicionaservico extends AppCompatActivity {
         databaseReference= firebaseDatabase.getReference();
     }
 
-    public void bt_voltar_telaadicionaservico_to_telaselecionaservico (View view){
-        Intent it = new Intent(this, telaselecionaservico.class);
-        startActivity(it);
+    public void bt_finish_telaadicionaservico (View view){
+        finish();
+        //Intent it = new Intent(this, telaselecionaservico.class);
+        //startActivity(it);
     }
 
     public void bt_concluir_telaadicionaservico_to_telaselecionaservico (View view){

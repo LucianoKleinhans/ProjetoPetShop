@@ -29,9 +29,10 @@ public class telacadastrodono extends AppCompatActivity {
         startActivity(it);
     }
 
-    public void bt_cancelar_telacadastrodono_to_telacadastros (View view){
-        Intent it = new Intent(this, telacadastros.class);
-        startActivity(it);
+    public void bt_finish_telacadastrodono (View view){
+        finish();
+        //Intent it = new Intent(this, telacadastros.class);
+        //startActivity(it);
     }
 
     public void bt_slvcadastro_telacadastrodono_to_telacadastros (View view){

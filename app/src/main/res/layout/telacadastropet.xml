@@ -132,7 +132,7 @@
         android:layout_marginBottom="50dp"
         android:backgroundTint="#730000"
         android:text="@string/bt_cancelarcadastro_cadpet"
-        android:onClick="bt_cancelar_telacadastropet_to_telacadastroservicos"
+        android:onClick="bt_finish_telacadastropet"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextObsPetCad" />
