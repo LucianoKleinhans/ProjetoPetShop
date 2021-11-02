@@ -5,12 +5,19 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/petshop"
+        android:label="Petshop"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetShop">
+        <activity android:name=".activity.telaservicos"></activity>
+        <activity android:name=".activity.telacadastros"></activity>
+        <activity android:name=".activity.telacadastrodono"></activity>
+        <activity android:name=".activity.telacadastroservicos"></activity>
+        <activity android:name=".activity.telacadastropet"></activity>
+        <activity android:name=".activity.telaselecionaservico"></activity>
+        <activity android:name=".activity.telaadicionaservico"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.telamain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

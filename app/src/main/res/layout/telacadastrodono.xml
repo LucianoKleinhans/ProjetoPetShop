@@ -5,7 +5,7 @@
     android:background="#202020"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.telacadastrodono">
 
     <Button
         android:id="@+id/btCancelarDonoCad"
@@ -15,6 +15,7 @@
         android:layout_marginStart="5dp"
         android:backgroundTint="#730000"
         android:text="@string/bt_cancelar_caddono"
+        android:onClick="bt_cancelar_telacadastrodono_to_telacadastros"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -26,6 +27,7 @@
         android:layout_marginEnd="5dp"
         android:backgroundTint="#006400"
         android:text="@string/bt_salvarcadastro_caddono"
+        android:onClick="bt_slvcadastro_telacadastrodono_to_telacadastros"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -136,6 +138,7 @@
         android:layout_marginStart="5dp"
         android:backgroundTint="@color/teal_700"
         android:text="@string/br_adicionarpets_caddono"
+        android:onClick="bt_adicionarpets_telacadastrodono_to_telacadastropet"
         app:layout_constraintBottom_toTopOf="@+id/btCancelarDonoCad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

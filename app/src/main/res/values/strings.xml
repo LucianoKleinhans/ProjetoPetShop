@@ -4,6 +4,7 @@
     <string name="bt_cadastros_main">Cadastros</string>
 
     <string name="bt_novoservico_servico">Novo serviço</string>
+    <string name="Bt_voltar_servico">Voltar</string>
 
     <string name="bt_selecionardono_cadservico">Selecionar Dono</string>
     <string name="bt_addpet_cadservico">Add Pet</string>
@@ -39,4 +40,17 @@
     <string name="bt_cancelar_caddono">cancelar</string>
     <string name="bt_salvarcadastro_caddono">salvar cadastro</string>
     <string name="petshop">appname_petshop</string>
+
+    <string name="bt_voltar_cadastros">Voltar</string>
+    <string name="bt_adicionar_cadastros">Adicionar</string>
+    <string name="text_pesquisa_cadastros">Pesquisa</string>
+
+    <string name="bt_addnovoservico_selecionaservico">Cadastrar Servico</string>
+    <string name="bt_confirmar_selecionaservico">Confirmar</string>
+
+    <string name="text_nomeservico_addservico">Nome:</string>
+    <string name="text_precoservico_addservico">Preço:</string>
+    <string name="bt_voltar_addservico">Voltar</string>
+    <string name="bt_concluir_addservico">Concluir</string>
+
 </resources>

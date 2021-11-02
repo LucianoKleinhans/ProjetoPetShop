@@ -7,36 +7,67 @@
     android:layout_height="match_parent"
     android:backgroundTint="@color/black"
     android:backgroundTintMode="add"
-    tools:context=".MainActivity">
+    tools:context=".activity.telacadastropet">
 
-    <Button
-        android:id="@+id/btCancelarPetCad"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="50dp"
+    <ImageView
+
+        android:id="@+id/logoImgPetShop"
+        android:layout_width="400dp"
+        android:layout_height="150dp"
         android:layout_marginStart="5dp"
-        android:backgroundTint="#730000"
-        android:text="@string/bt_cancelarcadastro_cadpet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btSalvarPetCad"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="5dp"
-        android:backgroundTint="#006400"
-        android:text="@string/bt_salvarcadastro_cadpet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:contentDescription="@string/img_pet_cadpet"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@mipmap/imgpetshop" />
+
+    <EditText
+        android:id="@+id/TextNomePetCad"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/text_nomepet_cadpet"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImgPetShop" />
+
+    <EditText
+        android:id="@+id/TextEspeciePetCad"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:hint="@string/text_especiepet_cadpet"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextNomePetCad" />
 
     <EditText
         android:id="@+id/TextRacaPetCad"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:foregroundTint="#FFFFFF"
@@ -49,43 +80,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextEspeciePetCad" />
-
-    <EditText
-        android:id="@+id/TextNomePetCad"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="@string/text_nomepet_cadpet"
-        android:inputType="textPersonName"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoImgPetShop"
-        android:importantForAutofill="no" />
-
-    <EditText
-        android:id="@+id/TextEspeciePetCad"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="@string/text_especiepet_cadpet"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextNomePetCad" />
 
     <EditText
         android:id="@+id/EditDataNascPetCad"
@@ -103,36 +97,20 @@
         app:layout_constraintTop_toBottomOf="@+id/TextRacaPetCad" />
 
     <TextView
-        android:textColor="#ffffff"
         android:id="@+id/TextCalcIdade"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:textColor="#ffffff"
         android:textColorHint="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/EditDataNascPetCad"
         app:layout_constraintTop_toBottomOf="@+id/TextRacaPetCad" />
-
-    <ImageView
-
-        android:id="@+id/logoImgPetShop"
-        android:layout_width="400dp"
-        android:layout_height="266dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/img_pet_cadpet"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@mipmap/imgpetshop" />
 
     <EditText
         android:id="@+id/TextObsPetCad"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="@string/text_observacoes_cadpet"
@@ -144,5 +122,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditDataNascPetCad" />
+
+    <Button
+        android:id="@+id/btCancelarPetCad"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#730000"
+        android:text="@string/bt_cancelarcadastro_cadpet"
+        android:onClick="bt_cancelar_telacadastropet_to_telacadastroservicos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextObsPetCad" />
+
+    <Button
+        android:id="@+id/btSalvarPetCad"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#006400"
+        android:text="@string/bt_salvarcadastro_cadpet"
+        android:onClick="bt_slvcadastro_telacadastropet_to_telacadastroservicos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextObsPetCad" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
