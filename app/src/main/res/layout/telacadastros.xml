@@ -15,6 +15,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:textAlignment="center"
+        android:onClick="bt_busca_telacadastros"
         app:icon="@android:drawable/ic_menu_search"
         app:iconGravity="top"
         app:layout_constraintEnd_toEndOf="parent"
