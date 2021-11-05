@@ -3,7 +3,10 @@ package br.lajotasoftware.petshop.activity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.List;
+
 import br.lajotasoftware.petshop.classes.Dono;
+import br.lajotasoftware.petshop.classes.Pets;
 
 public class DataFirebase {
     private static FirebaseDatabase firebaseDatabase;
@@ -20,12 +23,14 @@ public class DataFirebase {
         return databaseReference;
     }
 
-    public static void salvar(Dono dono){
+    public static void salvar(Dono dono, Pets pets){
         if(databaseReference==null)
             inicio();
-        databaseReference.child("Dono").child(
-                dono.getId().toString()
-        ).child("Nome").setValue(dono.getNome());
+        databaseReference.child("Dono").child(dono.getId().toString()).child("nome").setValue(dono.getNome());
+        databaseReference.child("Dono").child(dono.getId().toString()).child("CPF").setValue(dono.getCPF());
+        databaseReference.child("Dono").child(dono.getId().toString()).child("endereco").setValue(dono.getEndereco());
+        databaseReference.child("Dono").child(dono.getId().toString()).child("telefone").setValue(dono.getTelefone());
+        databaseReference.child("Dono").child(dono.getId().toString()).child("pets").child(pets.getId().toString()).setValue(pets.getNome());
     }
 
     public void remover(Dono dono){

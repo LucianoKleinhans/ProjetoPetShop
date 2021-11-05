@@ -1,5 +1,8 @@
 package br.lajotasoftware.petshop.classes;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.Serializable;
 
 public class Dono implements Serializable {
@@ -55,12 +58,8 @@ public class Dono implements Serializable {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
     @Override
     public String toString() {
-        return "Dono{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                '}';
+        return id+ " - " +nome;
     }
 }

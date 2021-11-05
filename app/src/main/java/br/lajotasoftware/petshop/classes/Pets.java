@@ -10,6 +10,13 @@ public class Pets implements Serializable {
     private String datanascimento;
     private String observacao;
 
+    public Pets(Integer id) {
+        this.id = id;
+    }
+
+    public Pets() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -56,5 +63,10 @@ public class Pets implements Serializable {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    @Override
+    public String toString() {
+        return nome + especie + raca;
     }
 }

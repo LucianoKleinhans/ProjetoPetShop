@@ -44,7 +44,7 @@ public class telacadastros extends AppCompatActivity{
     ArrayAdapter arrayAdapter;
     private void preenche() {
         if (arrayAdapter == null) {
-            arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item,donos);
+            arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, donos);
             listView.setAdapter(arrayAdapter);
         } else {
             arrayAdapter.notifyDataSetChanged();
@@ -94,8 +94,12 @@ public class telacadastros extends AppCompatActivity{
     }
 
     public void bt_cadastros_to_telacadastrodono (View view){
+        novo();
+    }
+    private void novo(){
         Intent it = new Intent(this, telacadastrodono.class);
-        startActivity(it);
+        it.putExtra("Dono",new Dono(donos.size()+1));
+        someActivityResultLauncher.launch(it);
     }
 
 
