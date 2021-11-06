@@ -8,8 +8,11 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.LinkedList;
 
@@ -23,16 +26,18 @@ public class telaadicionaservico extends AppCompatActivity {
 
     private EditText nomeServ;
     private EditText precoServ;
+    //private String idServ;
     private Servico servico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.telaadicionaservico);
+        //idServ=databaseReference.push().toString();
         nomeServ=findViewById(R.id.textnomeservP);
         precoServ=findViewById(R.id.textprecoservP);
-        Intent i = getIntent();
-        servico= (Servico) i.getSerializableExtra("Servico");
+//        Intent i = getIntent();
+//        servico= (Servico) i.getSerializableExtra("Servico");
         //listar();
     }
 
@@ -45,7 +50,8 @@ public class telaadicionaservico extends AppCompatActivity {
     public void bt_concluir_telaadicionaservico_to_telaselecionaservico (View view){
         servico.setNome(nomeServ.getText().toString());
         servico.setPreco(precoServ.getText().toString());
-        DataFirebase.salvarServ(servico);
-        finish();
+        DataFirebase.writeNewUser(servico);
+//        finish();
     }
+
 }

@@ -98,7 +98,7 @@ public class telacadastros extends AppCompatActivity{
     }
     private void novo(){
         Intent it = new Intent(this, telacadastrodono.class);
-        it.putExtra("Dono",new Dono(donos.size()+1));
+        it.putExtra("Dono",new Dono(donos.size()+50));
         someActivityResultLauncher.launch(it);
     }
 

@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -32,6 +31,7 @@ import java.util.List;
 
 import br.lajotasoftware.petshop.R;
 import br.lajotasoftware.petshop.classes.Dono;
+
 import br.lajotasoftware.petshop.classes.Servico;
 import br.lajotasoftware.petshop.activity.DataFirebase;
 
@@ -50,15 +50,15 @@ public class telaselecionaservico extends AppCompatActivity {
         servicos= new LinkedList<>();
         listar();
 
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+       /* listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long relacionassexuales) {
+            *//*public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long relacionassexuales) {
                 Servico s = servicos.get(position);
-                DatabaseReference currentDatabase = FirebaseDatabase.getInstance().getReference("Servico");
+                DatabaseReference currentDatabase = FirebaseDatabase.getInstance().getReference("Servico/"+relacionassexuales);
                 currentDatabase.removeValue();
                 return true;
-            }
-        });
+            }*//*
+        });*/
     }
 
     ArrayAdapter arrayAdapter;
@@ -112,10 +112,28 @@ public class telaselecionaservico extends AppCompatActivity {
     public void bt_cadservico_telaselecionaservico_to_telaadicionaservico (View view){
         novo();
     }
+    
+/*    ValueEventListener postListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            IDs id = dataSnapshot.getValue(IDs.class);
+        }
 
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    };
+//mPostReference.addValueEventListener(postListener);*/
+    //IDs ids = new IDs();
+    //int ServID = ids.getIDServico();
     private void novo() {
+        /*ServID = ServID + 1;
+        ids.setIDServico(ServID);
+        DataFirebase.salvarID(ids);*/
         Intent it = new Intent(this, telaadicionaservico.class);
-        it.putExtra("Servico",new Servico(servicos.size()+1));
+        String servID = databaseReference.push().toString();
+        it.putExtra("Servico",(servID));
         someActivityResultLauncher.launch(it);
     }
 
