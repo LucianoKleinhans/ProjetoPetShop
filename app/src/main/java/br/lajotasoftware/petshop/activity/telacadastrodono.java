@@ -70,7 +70,7 @@ public class telacadastrodono extends AppCompatActivity {
         dono.setTelefone(telefoneDono.getText().toString());
         dono.setEndereco(enderecoDono.getText().toString());
         dono.setCPF(CPFDono.getText().toString());
-        DataFirebase.salvar(dono,pets);
+        DataFirebase.salvar(dono);
         finish();
     }
     List<Pets> pets;

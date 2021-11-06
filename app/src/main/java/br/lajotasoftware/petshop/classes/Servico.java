@@ -5,7 +5,14 @@ import java.io.Serializable;
 public class Servico implements Serializable {
     private Integer id;
     private String nome;
-    private Float preco;
+    private String preco;
+
+    public Servico(Integer id) {
+        this.id = id;
+    }
+
+    public Servico() {
+    }
 
     public Integer getId() {
         return id;
@@ -23,11 +30,18 @@ public class Servico implements Serializable {
         this.nome = nome;
     }
 
-    public Float getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(Float preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
+    }
+
+    @Override
+    public String toString() {
+        {
+            return nome+ " - "+"R$"+preco;
+        }
     }
 }
