@@ -39,8 +39,12 @@ public class DataFirebase {
         databaseReference.child("Dono").child(dono.getId()+"").removeValue();
     }
 
+<<<<<<< Updated upstream
 /*    public static void salvarServ(Servico servico){
 
+=======
+    /*public static void salvarServ(Servico servico){
+>>>>>>> Stashed changes
         if(databaseReference==null)
             inicio();
         databaseReference.child("Servico").push();
@@ -55,6 +59,7 @@ public class DataFirebase {
 
 
     public void removerServ(Servico servico){
+<<<<<<< Updated upstream
        // databaseReference.child("Servico").child(servico.getId()+"").removeValue();
     }
 
@@ -63,5 +68,9 @@ public class DataFirebase {
         databaseReference.child("IDs").child("IDServico").setValue(ids);
     }
 */
+=======
+        databaseReference.child("Servico").child(servico.getId()+"").removeValue();
+    }*/
+>>>>>>> Stashed changes
 
 }
