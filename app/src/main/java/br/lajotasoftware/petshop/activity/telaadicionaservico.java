@@ -50,12 +50,8 @@ public class telaadicionaservico extends AppCompatActivity {
     public void bt_concluir_telaadicionaservico_to_telaselecionaservico (View view){
         servico.setNome(nomeServ.getText().toString());
         servico.setPreco(precoServ.getText().toString());
-<<<<<<< Updated upstream
         DataFirebase.writeNewUser(servico);
 //        finish();
-=======
-        Servico.salvar(servico);
->>>>>>> Stashed changes
     }
 
 }

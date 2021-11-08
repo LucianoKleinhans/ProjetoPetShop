@@ -1,11 +1,6 @@
 package br.lajotasoftware.petshop.classes;
 
-<<<<<<< Updated upstream
 import com.google.firebase.database.IgnoreExtraProperties;
-=======
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
->>>>>>> Stashed changes
 
 import java.io.Serializable;
 
@@ -80,44 +75,10 @@ public class Servico implements Serializable {
         this.preco = preco;
     }
 
-//    @Override
-//    public String toString() {
-//        {
-//            return nome+ " - "+"R$"+preco;
-//        }
-//    }
-
-    private static FirebaseDatabase firebaseDatabase;
-    private static DatabaseReference databaseReference;
-
-    private static void inicio(){
-        firebaseDatabase= FirebaseDatabase.getInstance();
-        //firebaseDatabase.setPersistenceEnabled(true);
-        databaseReference= firebaseDatabase.getReference();
-    }
-
-    public static DatabaseReference getDatabaseReference() {
-        if(databaseReference==null)
-            inicio();
-        return databaseReference;
-    }
-
-    public static void salvar(Servico s){
-        if(databaseReference==null){
-            inicio();
-            databaseReference.child("Servico").child(s.getId().toString()).child("nome").setValue(s.getNome());
-            databaseReference.child("Servico").child(s.getId().toString()).child("preco").setValue(s.getPreco());
+    @Override
+    public String toString() {
+        {
+            return nome+ " - "+"R$"+preco;
         }
     }
-<<<<<<< Updated upstream
 }*/
-=======
-    public static void excluir(Servico s){
-        databaseReference.child("Servico").child(s.getId()+"").removeValue();
-    }
-    public static void editar(Servico s) {
-        databaseReference.child("Servico").child(s.getId().toString()).child("nome").setValue(s.getNome());
-        databaseReference.child("Servico").child(s.getId().toString()).child("preco").setValue(s.getPreco());
-    }
-}
->>>>>>> Stashed changes

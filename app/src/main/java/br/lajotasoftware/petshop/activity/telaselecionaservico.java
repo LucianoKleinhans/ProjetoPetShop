@@ -102,12 +102,14 @@ public class telaselecionaservico extends AppCompatActivity {
         }
     });
 
+
+
+
     private void doSomeOperations() {
         listar();
     }
 
     public void bt_cadservico_telaselecionaservico_to_telaadicionaservico (View view){
-<<<<<<< Updated upstream
         novo();
     }
     
@@ -132,10 +134,6 @@ public class telaselecionaservico extends AppCompatActivity {
         Intent it = new Intent(this, telaadicionaservico.class);
         String servID = databaseReference.push().toString();
         it.putExtra("Servico",(servID));
-=======
-        Intent it = new Intent(this, telaadicionaservico.class);
-        it.putExtra("Servico",new Servico());
->>>>>>> Stashed changes
         someActivityResultLauncher.launch(it);
     }
 
