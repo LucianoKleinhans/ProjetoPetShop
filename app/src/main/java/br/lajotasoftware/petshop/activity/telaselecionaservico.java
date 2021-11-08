@@ -50,15 +50,15 @@ public class telaselecionaservico extends AppCompatActivity {
         servicos= new LinkedList<>();
         listar();
 
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long relacionassexuales) {
-                Servico s = servicos.get(position);
-                DatabaseReference currentDatabase = FirebaseDatabase.getInstance().getReference("Servico");
-                currentDatabase.removeValue();
-                return true;
-            }
-        });
+//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long relacionassexuales) {
+//                Servico s = servicos.get(position);
+//                DatabaseReference currentDatabase = FirebaseDatabase.getInstance().getReference("Servico");
+//                currentDatabase.removeValue();
+//                return true;
+//            }
+//        });
     }
 
     ArrayAdapter arrayAdapter;
@@ -115,7 +115,7 @@ public class telaselecionaservico extends AppCompatActivity {
 
     private void novo() {
         Intent it = new Intent(this, telaadicionaservico.class);
-        it.putExtra("Servico",new Servico(servicos.size()+1));
+        it.putExtra("Servico",new Servico());
         someActivityResultLauncher.launch(it);
     }
 
