@@ -49,7 +49,9 @@ public class telacadastropet extends AppCompatActivity {
         pets.setRaca(racaPet.getText().toString());
         pets.setDatanascimento(dataNascimentoPet.getText().toString());
         pets.setObservacao(observacoes.getText().toString());
-
+        Intent it = new Intent();
+        it.putExtra("pets",pets);
+        setResult(RESULT_OK,it);
         finish();
     }
 

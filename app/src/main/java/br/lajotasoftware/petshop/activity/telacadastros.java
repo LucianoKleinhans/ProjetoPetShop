@@ -12,6 +12,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +26,7 @@ import java.util.List;
 
 import br.lajotasoftware.petshop.R;
 import br.lajotasoftware.petshop.classes.Dono;
+import br.lajotasoftware.petshop.classes.Pets;
 
 public class telacadastros extends AppCompatActivity{
 
@@ -98,7 +100,6 @@ public class telacadastros extends AppCompatActivity{
     }
     private void novo(){
         Intent it = new Intent(this, telacadastrodono.class);
-        it.putExtra("Dono",new Dono(donos.size()+1));
         someActivityResultLauncher.launch(it);
     }
 

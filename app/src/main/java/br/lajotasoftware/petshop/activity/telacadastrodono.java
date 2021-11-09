@@ -8,11 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -55,8 +53,22 @@ public class telacadastrodono extends AppCompatActivity {
 
     public void bt_adicionarpets_telacadastrodono_to_telacadastropet (View view){
         Intent it = new Intent(this, telacadastropet.class);
-        it.putExtra("Pets",new Pets(pets.size()+1));
-        someActivityResultLauncher.launch(it);
+        //it.putExtra("Pets",new Pets(pets.size()+1));
+        startActivityForResult(it,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if(requestCode==1){
+
+            Pets pets= (Pets) data.getSerializableExtra("pets");
+            dono.setPets(pets);
+
+
+        }
     }
 
     public void bt_finish_telacadastrodono (View view){
@@ -104,18 +116,7 @@ public class telacadastrodono extends AppCompatActivity {
             }
         });
     }*/
-    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        // There are no request codes
-                        Intent data = result.getData();
-                        //doSomeOperations();
-                    }
-                }
-            });
+
     /*
     private void doSomeOperations() {
         listar();

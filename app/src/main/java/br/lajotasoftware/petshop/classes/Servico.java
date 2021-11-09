@@ -1,9 +1,16 @@
 package br.lajotasoftware.petshop.classes;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.annotation.NonNull;
 
 public class Servico implements Serializable {
     private String id;
@@ -60,9 +67,30 @@ public class Servico implements Serializable {
     public static void salvar(Servico s){
         if(databaseReference==null){
             inicio();
-            String id = databaseReference.child("Servico").push().getKey();
-            databaseReference.child("Servico").child(id).child("nome").setValue(s.getNome());
-            databaseReference.child("Servico").child(id).child("preco").setValue(s.getPreco());
+            List<Servico> servicos = new ArrayList();
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    DataSnapshot dataSnapshot = snapshot.child("Servico");
+                    servicos.clear();
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        Servico servico = postSnapshot.getValue(Servico.class);
+                        servicos.add(servico);
+                    }
+
+                    String id = (Integer.parseInt(servicos.get(servicos.size()-1).getId())+1)+"";
+                    databaseReference.child("Servico").child(id).child("nome").setValue(s.getNome());
+                    databaseReference.child("Servico").child(id).child("preco").setValue(s.getPreco());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+            //String id = databaseReference.child("Servico").push().getKey();
+
+
         }
     }
 
@@ -72,5 +100,7 @@ public class Servico implements Serializable {
     public static void editar(Servico s) {
         databaseReference.child("Servico").child(s.getId().toString()).child("nome").setValue(s.getNome());
         databaseReference.child("Servico").child(s.getId().toString()).child("preco").setValue(s.getPreco());
+
+       // databaseReference.child("Servico").child("2").child("pet").child("id")setValue(s.getPreco());
     }
 }
