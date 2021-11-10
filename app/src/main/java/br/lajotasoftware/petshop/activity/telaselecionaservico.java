@@ -50,15 +50,15 @@ public class telaselecionaservico extends AppCompatActivity {
         servicos= new LinkedList<>();
         listar();
 
-//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long relacionassexuales) {
-//                Servico s = servicos.get(position);
-//                DatabaseReference currentDatabase = FirebaseDatabase.getInstance().getReference("Servico");
-//                currentDatabase.removeValue();
-//                return true;
-//            }
-//        });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long l) {
+                Servico s = servicos.get(position);
+                String id = s.getId();
+                //Servico.excluir(id.toString());
+                return true;
+            }
+        });
     }
 
     ArrayAdapter arrayAdapter;
@@ -72,7 +72,7 @@ public class telaselecionaservico extends AppCompatActivity {
     }
     List<Servico> servicos;
     public void listar(){
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 DataSnapshot dataSnapshot = snapshot.child("Servico");

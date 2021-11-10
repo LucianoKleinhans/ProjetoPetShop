@@ -46,6 +46,6 @@ public class telaadicionaservico extends AppCompatActivity {
         servico.setNome(nomeServ.getText().toString());
         servico.setPreco(precoServ.getText().toString());
         Servico.salvar(servico);
-        onBackPressed();
+        finish();
     }
 }
