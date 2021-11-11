@@ -8,6 +8,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,12 +28,17 @@ public class telaadicionaservico extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.telaadicionaservico);
-        nomeServ=findViewById(R.id.textnomeservP);
-        precoServ=findViewById(R.id.textprecoservP);
-        Intent i = getIntent();
-        servico= (Servico) i.getSerializableExtra("Servico");
+//        if (servico == null){
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.telaadicionaservico);
+            nomeServ=findViewById(R.id.textnomeservP);
+            precoServ=findViewById(R.id.textprecoservP);
+            Intent i = getIntent();
+            servico= (Servico) i.getSerializableExtra("Servico");
+//        }else{
+//            nomeServ.setText((CharSequence) databaseReference.child("Servico").child(servico.getId()).child("nome"));
+//        }
+
         //listar();
     }
 

@@ -1,7 +1,6 @@
 package br.lajotasoftware.petshop.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.text.Transliterator;
@@ -18,7 +17,9 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AlertDialogLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,7 +40,6 @@ public class telaselecionaservico extends AppCompatActivity {
 
     DatabaseReference databaseReference;
     private ListView listView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,16 +49,33 @@ public class telaselecionaservico extends AppCompatActivity {
         listView=findViewById(R.id.listservicos);
         servicos= new LinkedList<>();
         listar();
-
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long l) {
-                Servico s = servicos.get(position);
-                String id = s.getId();
-                //Servico.excluir(id.toString());
+                createDialog(view,position);
                 return true;
             }
         });
+    }
+
+    public void createDialog(View view,int position){
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        adb.setTitle("O que deseja fazer?");
+        adb.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Editar", Toast.LENGTH_LONG).show();
+                editar(position);
+                finish();
+            } });
+        adb.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Servico Excluido", Toast.LENGTH_LONG).show();
+                Servico s = servicos.get(position);
+                databaseReference.child("Servico").child(s.getId()).removeValue();
+                finish();
+            } });
+        AlertDialog alertDialog = adb.create();
+        alertDialog.show();
     }
 
     ArrayAdapter arrayAdapter;
@@ -70,9 +87,12 @@ public class telaselecionaservico extends AppCompatActivity {
             arrayAdapter.notifyDataSetChanged();
         }
     }
+
+
+
     List<Servico> servicos;
     public void listar(){
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 DataSnapshot dataSnapshot = snapshot.child("Servico");
@@ -89,6 +109,7 @@ public class telaselecionaservico extends AppCompatActivity {
             }
         });
     }
+
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
     new ActivityResultContracts.StartActivityForResult(),
     new ActivityResultCallback<ActivityResult>() {
@@ -111,6 +132,12 @@ public class telaselecionaservico extends AppCompatActivity {
 
     public void bt_cadservico_telaselecionaservico_to_telaadicionaservico (View view){
         novo();
+    }
+
+    private void editar(int position) {
+        Intent it = new Intent(this, telaadicionaservico.class);
+        it.putExtra("Servico",servicos.get(position));
+        someActivityResultLauncher.launch(it);
     }
 
     private void novo() {

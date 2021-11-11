@@ -66,30 +66,51 @@ public class Servico implements Serializable {
         return databaseReference;
     }
     public static void salvar(Servico s){
-        if(databaseReference==null){
-            inicio();
-            List<Servico> servicos = new ArrayList();
-            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    DataSnapshot dataSnapshot = snapshot.child("Servico");
-                    servicos.clear();
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        Servico servico = postSnapshot.getValue(Servico.class);
-                        servicos.add(servico);
+        if (s.id==null){
+            if(databaseReference==null){
+                inicio();
+                List<Servico> servicos = new ArrayList();
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        DataSnapshot dataSnapshot = snapshot.child("Servico");
+                        servicos.clear();
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                            Servico servico = postSnapshot.getValue(Servico.class);
+                            servicos.add(servico);
+                        }
+                        String id = (Integer.parseInt(servicos.get(servicos.size() - 1).getId()) + 1) + "";
+                        databaseReference.child("Servico").child(id).child("id").setValue(id);
+                        databaseReference.child("Servico").child(id).child("nome").setValue(s.getNome());
+                        databaseReference.child("Servico").child(id).child("preco").setValue(s.getPreco());
+                        databaseReference=null;
                     }
-                    String id = (Integer.parseInt(servicos.get(servicos.size() - 1).getId()) + 1) + "";
-                    databaseReference.child("Servico").child(id).child("id").setValue(id);
-                    databaseReference.child("Servico").child(id).child("nome").setValue(s.getNome());
-                    databaseReference.child("Servico").child(id).child("preco").setValue(s.getPreco());
-                    databaseReference=null;
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                }
-            });
+                    }
+                });
+            }
+        }else{
+            if(databaseReference==null){
+                inicio();
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String id = s.id;
+                        databaseReference.child("Servico").child(id).child("id").setValue(id);
+                        databaseReference.child("Servico").child(id).child("nome").setValue(s.getNome());
+                        databaseReference.child("Servico").child(id).child("preco").setValue(s.getPreco());
+                        databaseReference=null;
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
         }
     }
 
