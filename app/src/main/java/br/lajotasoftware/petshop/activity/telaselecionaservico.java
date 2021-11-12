@@ -39,7 +39,9 @@ import br.lajotasoftware.petshop.activity.DataFirebase;
 public class telaselecionaservico extends AppCompatActivity {
 
     DatabaseReference databaseReference;
+
     private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,8 +90,6 @@ public class telaselecionaservico extends AppCompatActivity {
         }
     }
 
-
-
     List<Servico> servicos;
     public void listar(){
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -105,7 +105,6 @@ public class telaselecionaservico extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
@@ -122,9 +121,6 @@ public class telaselecionaservico extends AppCompatActivity {
             }
         }
     });
-
-
-
 
     private void doSomeOperations() {
         listar();

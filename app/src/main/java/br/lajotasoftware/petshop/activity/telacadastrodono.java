@@ -65,7 +65,7 @@ public class telacadastrodono extends AppCompatActivity {
         if(requestCode==1){
 
             Pets pets= (Pets) data.getSerializableExtra("pets");
-            dono.setPets(pets);
+            //dono.setPets(pets);
 
 
         }

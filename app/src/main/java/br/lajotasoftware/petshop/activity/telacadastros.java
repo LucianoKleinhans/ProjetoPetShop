@@ -1,11 +1,15 @@
 package br.lajotasoftware.petshop.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -31,6 +35,7 @@ import br.lajotasoftware.petshop.classes.Pets;
 public class telacadastros extends AppCompatActivity{
 
     DatabaseReference databaseReference;
+
     private ListView listView;
 
     @Override
@@ -42,7 +47,35 @@ public class telacadastros extends AppCompatActivity{
         listView=findViewById(R.id.tabelacadastros);
         donos= new LinkedList<>();
         listar();
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long l) {
+                createDialog(view,position);
+                return true;
+            }
+        });
     }
+
+    private void createDialog(View view, int position) {
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        adb.setTitle("O que deseja fazer?");
+        adb.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int which) {
+                Toast.makeText(getApplicationContext(),"Editar", Toast.LENGTH_LONG).show();
+                editar(position);
+                finish();
+            } });
+        adb.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogInterface, int which) {
+              Toast.makeText(getApplicationContext(), "Cadastro Excluido", Toast.LENGTH_LONG).show();
+              Dono d = donos.get(position);
+              databaseReference.child("Dono").child(d.getId()).removeValue();
+              finish();
+            } });
+        AlertDialog alertDialog = adb.create();
+        alertDialog.show();
+    }
+
     ArrayAdapter arrayAdapter;
     private void preenche() {
         if (arrayAdapter == null) {
@@ -67,7 +100,6 @@ public class telacadastros extends AppCompatActivity{
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
@@ -89,8 +121,20 @@ public class telacadastros extends AppCompatActivity{
     }
 
     public void bt_busca_telacadastros(View view) {
-
     }
+
+    private void editar(int position) {
+        Intent it = new Intent(this,telacadastrodono.class);
+        it.putExtra("Dono",donos.get(position));
+        someActivityResultLauncher.launch(it);
+    }
+
+    private void novo(){
+        Intent it = new Intent(this, telacadastrodono.class);
+        it.putExtra("Dono",new Dono());
+        someActivityResultLauncher.launch(it);
+    }
+
     public void bt_finish_telacadastros (View view){
         finish();
     }
@@ -98,10 +142,4 @@ public class telacadastros extends AppCompatActivity{
     public void bt_cadastros_to_telacadastrodono (View view){
         novo();
     }
-    private void novo(){
-        Intent it = new Intent(this, telacadastrodono.class);
-        someActivityResultLauncher.launch(it);
-    }
-
-
 }

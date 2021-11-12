@@ -65,9 +65,9 @@ public class Pets implements Serializable {
         this.observacao = observacao;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return nome + especie + raca;
-    }
+    }*/
 
 }

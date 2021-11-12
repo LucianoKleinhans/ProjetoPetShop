@@ -85,10 +85,8 @@ public class Servico implements Serializable {
                         databaseReference.child("Servico").child(id).child("preco").setValue(s.getPreco());
                         databaseReference=null;
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
             }
@@ -114,7 +112,7 @@ public class Servico implements Serializable {
         }
     }
 
-    public static void excluir(Servico s){
+    /*public static void excluir(Servico s){
         if(databaseReference==null){
             inicio();
             List<Servico> servicos = new ArrayList();
@@ -145,5 +143,5 @@ public class Servico implements Serializable {
         databaseReference.child("Servico").child(s.getId().toString()).child("preco").setValue(s.getPreco());
 
        // databaseReference.child("Servico").child("2").child("pet").child("id")setValue(s.getPreco());
-    }
+    }*/
 }
