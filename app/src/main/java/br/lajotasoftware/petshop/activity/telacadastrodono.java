@@ -9,6 +9,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +29,7 @@ import java.util.List;
 import br.lajotasoftware.petshop.R;
 import br.lajotasoftware.petshop.classes.Dono;
 import br.lajotasoftware.petshop.classes.Pets;
+import br.lajotasoftware.petshop.classes.Servico;
 
 public class telacadastrodono extends AppCompatActivity {
 
@@ -49,23 +54,38 @@ public class telacadastrodono extends AppCompatActivity {
         dono= (Dono) i.getSerializableExtra("Dono");
     }
 
+    /*public void bt_adicionarpets_telacadastrodono_to_telacadastropet (View view){
+        Intent it = new Intent(this, telacadastropet.class);
+        it.putExtra("pets",new Pets());
+        someActivityResultLauncher.launch(it);
+    }
+
+    */ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+                        Intent data = result.getData();
+                        //doSomeOperations();
+                    }
+                }
+            });
+
     public void bt_adicionarpets_telacadastrodono_to_telacadastropet (View view){
         Intent it = new Intent(this, telacadastropet.class);
         //it.putExtra("Pets",new Pets(pets.size()+1));
+        it.putExtra("Pets",new Pets());
         startActivityForResult(it,1);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-
         if(requestCode==1){
-
-            Pets pets= (Pets) data.getSerializableExtra("pets");
-            //dono.setPets(pets);
-
-
+            Pets pets= (Pets) data.getSerializableExtra("Pets");
+            dono.setPets(pets);
         }
     }
 
@@ -81,7 +101,6 @@ public class telacadastrodono extends AppCompatActivity {
         dono.setEndereco(enderecoDono.getText().toString());
         dono.setCPF(CPFDono.getText().toString());
         Dono.salvar(dono);
-        //DataFirebase.salvar(dono);
         finish();
     }
     //List<Pets> pets;

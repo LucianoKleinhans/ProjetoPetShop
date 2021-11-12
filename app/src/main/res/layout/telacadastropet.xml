@@ -149,6 +149,7 @@
         android:onClick="bt_slvcadastro_telacadastropet_to_telacadastroservicos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextObsPetCad" />
+        app:layout_constraintTop_toBottomOf="@+id/TextObsPetCad"
+        tools:ignore="UsingOnClickInXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

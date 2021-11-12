@@ -19,7 +19,7 @@ public class Dono implements Serializable {
     private String telefone;
     private String CPF;
     private String endereco;
-    //static List<Pets> pets;
+    static List<Pets> pets;
 
     public Dono(String id) {
         this.id = id;
@@ -64,15 +64,15 @@ public class Dono implements Serializable {
         return endereco;
     }
 
-    /*public List<Pets> getPets() {
+    public List<Pets> getPets() {
         return pets;
-    }*/
+    }
 
-    /*public void setPets(Pets pet) {
-        if (pets == null)
-            pets = new LinkedList<>();
+    public void setPets(Pets pet) {
+        if (pets == null){
+            pets = new LinkedList<>();}
         pets.add(pet);
-    }*/
+    }
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
@@ -97,7 +97,7 @@ public class Dono implements Serializable {
         return databaseReference;
     }
     public static void salvar(Dono d) {
-        if (d.id == null)
+        if (d.id == null) {
             if (databaseReference == null) {
                 inicio();
                 List<Dono> donos = new ArrayList();
@@ -116,49 +116,48 @@ public class Dono implements Serializable {
                         databaseReference.child("Dono").child(id).child("endereco").setValue(d.getEndereco());
                         databaseReference.child("Dono").child(id).child("CPF").setValue(d.getCPF());
                         databaseReference.child("Dono").child(id).child("telefone").setValue(d.getTelefone());
-                        /*for (int i = 0; i < pets.size(); i++) {
-                            databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(i + "");
-                            databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getNome());
-                            databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getEspecie());
-                            databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getRaca());
-                            databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getDatanascimento());
-                            databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getObservacao());
-                        }*/
+                        for (int i = 0; i < pets.size(); i++) {
+                            //String idpet = i+"";
+                            databaseReference.child("Dono").child(id).child("Pets").setValue(d.getPets());
+                            //databaseReference.child("Dono").child(id).child("Pets").child(idpet).child("id").setValue(idpet);
+
+                        }
+                        databaseReference=null;
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                     }
                 });
-            } else {
-                if (databaseReference == null) {
-                    inicio();
-                    databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            String id = d.id;
-                            databaseReference.child("Dono").child(id).child("id").setValue(id);
-                            databaseReference.child("Dono").child(id).child("nome").setValue(d.getNome());
-                            databaseReference.child("Dono").child(id).child("endereco").setValue(d.getEndereco());
-                            databaseReference.child("Dono").child(id).child("CPF").setValue(d.getCPF());
-                            databaseReference.child("Dono").child(id).child("telefone").setValue(d.getTelefone());
-                            /*for (int i = 0; i < pets.size(); i++) {
-                                databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getNome());
-                                databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getEspecie());
-                                databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getRaca());
-                                databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getDatanascimento());
-                                databaseReference.child("Dono").child(id).child("Pets").child(i + "").setValue(pets.get(i).getObservacao());
-                            }*/
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-                }
             }
+        } else {
+            if (databaseReference == null) {
+                inicio();
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String id = d.id;
+                        databaseReference.child("Dono").child(id).child("id").setValue(id);
+                        databaseReference.child("Dono").child(id).child("nome").setValue(d.getNome());
+                        databaseReference.child("Dono").child(id).child("endereco").setValue(d.getEndereco());
+                        databaseReference.child("Dono").child(id).child("CPF").setValue(d.getCPF());
+                        databaseReference.child("Dono").child(id).child("telefone").setValue(d.getTelefone());
+                        int idpet = d.getPets().size()+1;
+                        for (int i = idpet; i < pets.size(); i++) {
+                            databaseReference.child("Dono").child(id).child("Pets").setValue(d.getPets());
+                            databaseReference=null;
+                        }
+                        databaseReference=null;
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        }
+    }
     /*public static void excluir(Servico s){
         databaseReference.child("Servico").child(s.getId()+"").removeValue();
     }
@@ -166,5 +165,4 @@ public class Dono implements Serializable {
         databaseReference.child("Servico").child(s.getId().toString()).child("nome").setValue(s.getNome());
         databaseReference.child("Servico").child(s.getId().toString()).child("preco").setValue(s.getPreco());
     }*/
-    }
 }

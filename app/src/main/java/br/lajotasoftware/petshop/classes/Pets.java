@@ -3,25 +3,25 @@ package br.lajotasoftware.petshop.classes;
 import java.io.Serializable;
 
 public class Pets implements Serializable {
-    private Integer id;
+    private String id;
     private String nome;
     private String especie;
     private String raca;
     private String datanascimento;
     private String observacao;
 
-    public Pets(Integer id) {
+    public Pets(String id) {
         this.id = id;
     }
 
     public Pets() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -65,9 +65,9 @@ public class Pets implements Serializable {
         this.observacao = observacao;
     }
 
-    /*@Override
+    @Override
     public String toString() {
-        return nome + especie + raca;
-    }*/
+        return nome +"-"+ especie +"-"+ raca +"-"+ datanascimento +"-"+ observacao;
+    }
 
 }

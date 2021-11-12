@@ -17,6 +17,7 @@ import br.lajotasoftware.petshop.classes.Pets;
 public class telacadastropet extends AppCompatActivity {
 
     DatabaseReference databaseReference;
+
     private EditText nomePet;
     private EditText especiePet;
     private EditText racaPet;
@@ -44,15 +45,19 @@ public class telacadastropet extends AppCompatActivity {
     }
 
     public void bt_slvcadastro_telacadastropet_to_telacadastroservicos(View view){
+        novo();
+    }
+
+    private void novo() {
         pets.setNome(nomePet.getText().toString());
         pets.setEspecie(especiePet.getText().toString());
         pets.setRaca(racaPet.getText().toString());
         pets.setDatanascimento(dataNascimentoPet.getText().toString());
         pets.setObservacao(observacoes.getText().toString());
         Intent it = new Intent();
-        it.putExtra("pets",pets);
+        it.putExtra("Pets",pets);
         setResult(RESULT_OK,it);
-        finish();
+        onBackPressed();
     }
 
 }
