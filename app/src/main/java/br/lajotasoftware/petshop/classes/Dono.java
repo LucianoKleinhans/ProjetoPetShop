@@ -104,7 +104,7 @@ public class Dono implements Serializable {
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        DataSnapshot dataSnapshot = snapshot.child("Donos");
+                        DataSnapshot dataSnapshot = snapshot.child("Dono");
                         donos.clear();
                         for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                             Dono dono = postSnapshot.getValue(Dono.class);
@@ -137,6 +137,7 @@ public class Dono implements Serializable {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String id = d.id;
+                            databaseReference.child("Dono").child(id).child("id").setValue(id);
                             databaseReference.child("Dono").child(id).child("nome").setValue(d.getNome());
                             databaseReference.child("Dono").child(id).child("endereco").setValue(d.getEndereco());
                             databaseReference.child("Dono").child(id).child("CPF").setValue(d.getCPF());

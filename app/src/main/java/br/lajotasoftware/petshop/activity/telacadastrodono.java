@@ -36,6 +36,7 @@ public class telacadastrodono extends AppCompatActivity {
     private EditText enderecoDono;
     private EditText CPFDono;
     private Dono dono;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +47,6 @@ public class telacadastrodono extends AppCompatActivity {
         CPFDono=findViewById(R.id.textCPFDonoCad);
         Intent i = getIntent();
         dono= (Dono) i.getSerializableExtra("Dono");
-        listView=findViewById(R.id.ListPetsCadDono);
-        pets= new LinkedList<>();
-        //listar();
     }
 
     public void bt_adicionarpets_telacadastrodono_to_telacadastropet (View view){
@@ -82,10 +80,11 @@ public class telacadastrodono extends AppCompatActivity {
         dono.setTelefone(telefoneDono.getText().toString());
         dono.setEndereco(enderecoDono.getText().toString());
         dono.setCPF(CPFDono.getText().toString());
+        Dono.salvar(dono);
         //DataFirebase.salvar(dono);
         finish();
     }
-    List<Pets> pets;
+    //List<Pets> pets;
     //lista pets ---------------------------------------------------------------------------------------------------------
     /*
     ArrayAdapter arrayAdapter;
