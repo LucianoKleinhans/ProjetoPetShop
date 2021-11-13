@@ -29,6 +29,8 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="1dp"
+        android:cacheColorHint="#FFFFFF"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +68,8 @@
         android:hint="@string/text_pesquisa_cadastros"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:textColor="#ffffff"
+        android:textColorHint="#B6B6B6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#BFBFBF"
     android:backgroundTint="#202020"
     tools:context=".activity.telaselecionaservico">
 
@@ -14,8 +14,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
         android:layout_marginBottom="50dp"
-        android:text="@string/bt_addnovoservico_selecionaservico"
         android:onClick="bt_cadservico_telaselecionaservico_to_telaadicionaservico"
+        android:text="@string/bt_addnovoservico_selecionaservico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -25,8 +25,8 @@
         android:layout_height="50dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="50dp"
-        android:text="@string/bt_confirmar_selecionaservico"
         android:onClick="bt_confirmar_telaselecionaservico_to_telacadastroservicos"
+        android:text="@string/bt_confirmar_selecionaservico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -37,6 +37,9 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="1dp"
+        android:cacheColorHint="#BFBFBF"
+        android:foregroundTint="#C8C8C8"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -24,6 +24,7 @@
         <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/layout/telacadastros.xml" value="0.3625" />
         <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/layout/telacadastroservicos.xml" value="0.3625" />
         <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/layout/telamain.xml" value="0.3625" />
+        <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/layout/telaselecionaservico.xml" value="0.2682291666666667" />
         <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/layout/telaservicos.xml" value="0.3625" />
         <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/mipmap-anydpi-v26/LogoImg.xml" value="0.21875" />
         <entry key="..\:/Users/Luciano/Desktop/Faculdade/ProjetoPetshop/app/src/main/res/mipmap-anydpi-v26/LogoImg_round.xml" value="0.21875" />
@@ -41,5 +42,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.3625" />
+      </ProjectState>
+    </option>
   </component>
 </project>

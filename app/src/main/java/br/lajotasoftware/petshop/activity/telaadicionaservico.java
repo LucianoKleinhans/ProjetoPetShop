@@ -28,18 +28,16 @@ public class telaadicionaservico extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        if (servico == null){
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.telaadicionaservico);
-            nomeServ=findViewById(R.id.textnomeservP);
-            precoServ=findViewById(R.id.textprecoservP);
-            Intent i = getIntent();
-            servico= (Servico) i.getSerializableExtra("Servico");
-//        }else{
-//            nomeServ.setText((CharSequence) databaseReference.child("Servico").child(servico.getId()).child("nome"));
-//        }
-
-        //listar();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.telaadicionaservico);
+        Intent i = getIntent();
+        nomeServ=findViewById(R.id.textnomeservP);
+        precoServ=findViewById(R.id.textprecoservP);
+        servico= (Servico) i.getSerializableExtra("Servico");
+        if (nomeServ!=null&&precoServ!=null){
+            nomeServ.setText(servico.getNome());
+            precoServ.setText(servico.getPreco());
+        }
     }
 
     public void bt_finish_telaadicionaservico (View view){

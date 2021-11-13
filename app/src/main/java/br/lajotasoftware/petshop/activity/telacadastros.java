@@ -59,13 +59,19 @@ public class telacadastros extends AppCompatActivity{
     private void createDialog(View view, int position) {
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle("O que deseja fazer?");
-        adb.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
+        adb.setPositiveButton("Selecionar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Selecionou", Toast.LENGTH_LONG).show();
+                seleciona(position);
+                finish();
+            } });
+        adb.setNegativeButton("Editar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int which) {
                 Toast.makeText(getApplicationContext(),"Editar", Toast.LENGTH_LONG).show();
                 editar(position);
                 finish();
             } });
-        adb.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
+        adb.setNeutralButton("Excluir", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int which) {
               Toast.makeText(getApplicationContext(), "Cadastro Excluido", Toast.LENGTH_LONG).show();
               Dono d = donos.get(position);
@@ -133,6 +139,13 @@ public class telacadastros extends AppCompatActivity{
         Intent it = new Intent(this, telacadastrodono.class);
         it.putExtra("Dono",new Dono());
         someActivityResultLauncher.launch(it);
+    }
+
+    private void seleciona(int position) {
+        Intent it = new Intent(this, telacadastroservicos.class);
+        it.putExtra("Servico",donos.getClass());
+        someActivityResultLauncher.launch(it);
+        finish();
     }
 
     public void bt_finish_telacadastros (View view){
