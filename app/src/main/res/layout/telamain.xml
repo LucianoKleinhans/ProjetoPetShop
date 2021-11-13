@@ -43,14 +43,27 @@
         android:id="@+id/Logo"
         android:layout_width="368dp"
         android:layout_height="347dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
         android:contentDescription="@string/imgmain"
-        app:layout_constraintBottom_toTopOf="@+id/BtServicos"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281"
         app:srcCompat="@mipmap/imgpetshop" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="361dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="5dp"
+        android:text='Programa ainda não esta 100% funcional, avaliar o crud pelas telas Servico>novo>selecionar servico>"Tela com Crud Funcional" // Cadastro> novo> "Cadastro de dono com pet em testes ainda mas esta funcionando parcialmente"'
+        android:textColor="#C8C8C8"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/BtServicos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
