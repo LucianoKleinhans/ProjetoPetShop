@@ -69,7 +69,6 @@ public class telacadastros extends AppCompatActivity{
             public void onClick(DialogInterface dialogInterface, int which) {
                 Toast.makeText(getApplicationContext(),"Editar", Toast.LENGTH_LONG).show();
                 editar(position);
-                finish();
             } });
         adb.setNeutralButton("Excluir", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int which) {

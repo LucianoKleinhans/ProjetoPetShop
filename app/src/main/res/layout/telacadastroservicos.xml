@@ -98,7 +98,7 @@
         android:id="@+id/textRacaPet"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:text="@string/text_racapet_cadservico"
+        android:text="@string/text_racapet_cadservicoo"
         android:textColor="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textIdadePet" />

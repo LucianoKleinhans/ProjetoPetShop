@@ -90,57 +90,71 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCPFDonoCad" />
 
-    <ListView
-        android:id="@+id/ListPetsCadDono"
-        android:layout_width="387dp"
-        android:layout_height="341dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/BtAddPetCadDono"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPets" />
-
     <Button
         android:id="@+id/btCancelarDonoCad"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="50dp"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="1dp"
         android:backgroundTint="#730000"
-        android:text="@string/bt_cancelar_caddono"
         android:onClick="bt_finish_telacadastrodono"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/bt_cancelar_caddono"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtAddPetCadDono" />
 
     <Button
         android:id="@+id/btSalvarDonoCad"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="5dp"
         android:backgroundTint="#006400"
-        android:text="@string/bt_salvarcadastro_caddono"
         android:onClick="bt_slvcadastro_telacadastrodono_to_telacadastros"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="@string/bt_salvarcadastro_caddono"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtAddPetCadDono" />
 
     <Button
         android:id="@+id/BtAddPetCadDono"
         android:layout_width="400dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
         android:backgroundTint="@color/teal_700"
-        android:text="@string/br_adicionarpets_caddono"
         android:onClick="bt_adicionarpets_telacadastrodono_to_telacadastropet"
-        app:layout_constraintBottom_toTopOf="@+id/btCancelarDonoCad"
+        android:text="@string/br_adicionarpets_caddono"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
         tools:ignore="TextContrastCheck" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="401dp"
+        android:layout_height="261dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/BtAddPetCadDono"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextPets">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/ListPetsCadDono"
+                android:layout_width="match_parent"
+                android:layout_height="259dp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

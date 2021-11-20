@@ -67,7 +67,6 @@ public class telaselecionaservico extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Selecionou", Toast.LENGTH_LONG).show();
                 seleciona(position);
-                finish();
             } });
         adb.setNegativeButton("Editar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -104,7 +103,8 @@ public class telaselecionaservico extends AppCompatActivity {
                 DataSnapshot dataSnapshot = snapshot.child("Servico");
                 servicos.clear();
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    Servico servico = postSnapshot.getValue(Servico.class);
+                    Servico servico = new Servico();
+                    servico = postSnapshot.getValue(Servico.class);
                     servicos.add(servico);
                 }
                 preenche();
@@ -149,10 +149,10 @@ public class telaselecionaservico extends AppCompatActivity {
     }
 
     private void seleciona(int position) {
-        Intent it = new Intent(this,telacadastroservicos.class);
+        Intent it = getIntent();
         it.putExtra("Servico",servicos.get(position));
-        someActivityResultLauncher.launch(it);
-        finish();
+        setResult(RESULT_OK,it);
+        onBackPressed();
     }
 
     public void bt_confirmar_telaselecionaservico_to_telacadastroservicos (View view){

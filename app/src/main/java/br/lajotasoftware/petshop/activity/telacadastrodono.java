@@ -40,6 +40,7 @@ public class telacadastrodono extends AppCompatActivity {
     private EditText telefoneDono;
     private EditText enderecoDono;
     private EditText CPFDono;
+    private ListView listaPets;
     private Dono dono;
 
     @Override
@@ -50,13 +51,15 @@ public class telacadastrodono extends AppCompatActivity {
         telefoneDono=findViewById(R.id.textTelDonoCad);
         enderecoDono=findViewById(R.id.textEndDonoCad);
         CPFDono=findViewById(R.id.textCPFDonoCad);
+        listaPets= findViewById(R.id.ListPetsCadDono);
         Intent i = getIntent();
         dono= (Dono) i.getSerializableExtra("Dono");
         if (nomeDono!=null&&telefoneDono!=null&&enderecoDono!=null&&CPFDono!=null){
             nomeDono.setText(dono.getNome());
-            telefoneDono.setText(dono.getNome());
-            enderecoDono.setText(dono.getNome());
-            CPFDono.setText(dono.getNome());
+            telefoneDono.setText(dono.getTelefone());
+            enderecoDono.setText(dono.getEndereco());
+            CPFDono.setText(dono.getCPF());
+            listaPets.setAdapter(new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,dono.getPets()));
         }
     }
 
@@ -64,9 +67,9 @@ public class telacadastrodono extends AppCompatActivity {
         Intent it = new Intent(this, telacadastropet.class);
         it.putExtra("pets",new Pets());
         someActivityResultLauncher.launch(it);
-    }
+    }*/
 
-    */ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override

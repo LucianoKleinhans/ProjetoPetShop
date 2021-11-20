@@ -9,6 +9,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.EventListener;
+import java.util.LinkedList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -17,12 +18,21 @@ public class Servico implements Serializable {
     private String id;
     private String nome;
     private String preco;
+    private List<ArrayList> servicos;
 
     public Servico(String id) {
         this.id = id;
     }
 
     public Servico() {
+    }
+
+    public List<ArrayList> getServicos() {
+        return servicos!=null?servicos:new LinkedList<>();
+    }
+
+    public void setServicos(List<ArrayList> servicos) {
+        this.servicos = servicos;
     }
 
     public String getId() {

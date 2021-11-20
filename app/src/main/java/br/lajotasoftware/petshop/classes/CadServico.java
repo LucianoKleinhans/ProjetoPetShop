@@ -109,6 +109,9 @@ public class CadServico implements Serializable {
             inicio();
         return databaseReference;
     }
+
+    public void salvar() {
+    }
    /* public static void salvar(Dono d) {
         if (d.id == null) {
             if (databaseReference == null) {

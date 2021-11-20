@@ -52,5 +52,6 @@
     <string name="text_precoservico_addservico">Preço:</string>
     <string name="bt_voltar_addservico">Voltar</string>
     <string name="bt_concluir_addservico">Concluir</string>
+    <string name="text_racapet_cadservicoo">Raca:</string>
 
 </resources>

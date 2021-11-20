@@ -26,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import br.lajotasoftware.petshop.R;
@@ -43,10 +45,11 @@ public class telacadastroservicos extends AppCompatActivity {
     private TextView txtNomePet;
     private TextView txtIdadePet;
     private TextView txtRacaPet;
-    private ListView listView;
+    private ListView listaServico;
     private Spinner spinner;
     private CadServico cadServico;
     private Dono dono;
+    private Servico servico;
     private Pets pets;
 
     @Override
@@ -55,7 +58,6 @@ public class telacadastroservicos extends AppCompatActivity {
         setContentView(R.layout.telacadastroservicos);
         databaseReference= DataFirebase.getDatabaseReference();
         Intent i = getIntent();
-        listView=findViewById(R.id.ListaServicos);
         txtNomeDono=findViewById(R.id.TextNomeDono);
         txtEnderecoDono=findViewById(R.id.TextEnderecoDono);
         txtTelefoneDono=findViewById(R.id.TextTelefone1Dono);
@@ -63,37 +65,21 @@ public class telacadastroservicos extends AppCompatActivity {
         txtIdadePet=findViewById(R.id.textIdadePet2);
         txtRacaPet=findViewById(R.id.textRacaPet2);
         cadServico = (CadServico) i.getSerializableExtra("CadServico");
-        /*  txtNomeDono.setText(dono.getNome());
-            txtEnderecoDono.setText(dono.getEndereco());
-            txtTelefoneDono.setText(dono.getTelefone());*/
         spinner= findViewById(R.id.spinner);
+        listaServico=findViewById(R.id.ListaServicos);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
                 Object item = parent.getItemAtPosition(position);
                 pets = (Pets) item;
                 PreencheCampoPet(pets);
-                //createDialog(view,position);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
     }
-
-    private void PreencheCampoPet(Pets pets) {
-        txtNomePet.setText(pets.getNome());
-        txtIdadePet.setText(pets.getDatanascimento());
-        txtIdadePet.setText(pets.getRaca());
-    }
-
-    public void bt_selecionardono_telacadastroservicos_to_telacadastros (View view){
-        Intent it = new Intent(this, telacadastros.class);
-        someActivityResultLauncher.launch(it);
-    }
-
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -104,31 +90,55 @@ public class telacadastroservicos extends AppCompatActivity {
                         Intent data = result.getData();
                         if(data.getSerializableExtra("Dono")!=null) {
                             dono = (Dono) data.getSerializableExtra("Dono");
-                            preencheCampos(dono);
+                            preencheCampoDono(dono);
                         }
-                        if(data.getSerializableExtra("servicos")!=null){
-
+                        if(data.getSerializableExtra("Servico")!=null){
+                            servico = (Servico) data.getSerializableExtra("Servico");
+                            PreencheListaServico(servico);
                         }
                     }
                 }
             });
-
-    private void preencheCampos(Dono dono) {
+    private void preencheCampoDono(Dono dono) {
+        String IDDono = dono.getId();
+        String CPFDono = dono.getCPF();
         txtNomeDono.setText(dono.getNome());
         txtEnderecoDono.setText(dono.getEndereco());
         txtTelefoneDono.setText(dono.getTelefone());
         spinner.setAdapter(new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,dono.getPets()));
-        //spinner.getSelectedItem();
     }
 
-    public void bt_addpet_telacadastroservicos_to_telacadastropet (View view){
+    private void PreencheCampoPet(Pets pets) {
+        Date currentTime = Calendar.getInstance().getTime();
+        String IDPet = pets.getId();
+        String especie = pets.getEspecie();
+        String datanascimento = pets.getDatanascimento();
+        String observacao = pets.getObservacao();
+        //Integer idade = androi datanascimento
+        txtNomePet.setText(pets.getNome());
+        txtIdadePet.setText(pets.getDatanascimento());
+        txtRacaPet.setText(pets.getRaca());
+    }
+
+    private void PreencheListaServico(Servico servico) {
+
+
+        //listaServico.setAdapter(new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,servico.getServicos()));
+    }
+
+   /* public void bt_addpet_telacadastroservicos_to_telacadastropet (View view){
         Intent it = new Intent(this, telacadastropet.class);
         startActivity(it);
+    }*/
+
+    public void bt_selecionardono_telacadastroservicos_to_telacadastros (View view){
+        Intent it = new Intent(this, telacadastros.class);
+        someActivityResultLauncher.launch(it);
     }
 
     public void bt_selecionarservico_telacadastroservicos_to_telaselecionaservico (View view){
         Intent it = new Intent(this, telaselecionaservico.class);
-        startActivity(it);
+        someActivityResultLauncher.launch(it);
     }
 
     public void bt_finish_telacadastroservicos (View view){
@@ -138,8 +148,12 @@ public class telacadastroservicos extends AppCompatActivity {
     }
 
     public void bt_concluir_telacadastroservicos_to_telaservicos (View view){
-        Intent it = new Intent(this, telaservicos.class);
-        startActivity(it);
+        dono.setNome(txtNomeDono.getText().toString());
+        dono.setTelefone(txtTelefoneDono.getText().toString());
+        dono.setEndereco(txtEnderecoDono.getText().toString());
+        dono.setCPF(dono.getCPF());
+       // cadServico.salvar(dono,pet,servico);
+        onBackPressed();
     }
 
     public void setDatabaseReference(DatabaseReference databaseReference) {
