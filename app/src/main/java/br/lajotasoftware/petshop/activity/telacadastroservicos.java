@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
@@ -42,8 +44,10 @@ public class telacadastroservicos extends AppCompatActivity {
     private TextView txtIdadePet;
     private TextView txtRacaPet;
     private ListView listView;
+    private Spinner spinner;
     private CadServico cadServico;
     private Dono dono;
+    private Pets pets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +58,67 @@ public class telacadastroservicos extends AppCompatActivity {
         listView=findViewById(R.id.ListaServicos);
         txtNomeDono=findViewById(R.id.TextNomeDono);
         txtEnderecoDono=findViewById(R.id.TextEnderecoDono);
-        txtTelefoneDono=findViewById(R.id.TextTelefone);
+        txtTelefoneDono=findViewById(R.id.TextTelefone1Dono);
+        txtNomePet=findViewById(R.id.textNomePet2);
+        txtIdadePet=findViewById(R.id.textIdadePet2);
+        txtRacaPet=findViewById(R.id.textRacaPet2);
         cadServico = (CadServico) i.getSerializableExtra("CadServico");
-        /*    txtNomeDono.setText(dono.getNome());
+        /*  txtNomeDono.setText(dono.getNome());
             txtEnderecoDono.setText(dono.getEndereco());
             txtTelefoneDono.setText(dono.getTelefone());*/
+        spinner= findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                Object item = parent.getItemAtPosition(position);
+                pets = (Pets) item;
+                PreencheCampoPet(pets);
+                //createDialog(view,position);
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+    private void PreencheCampoPet(Pets pets) {
+        txtNomePet.setText(pets.getNome());
+        txtIdadePet.setText(pets.getDatanascimento());
+        txtIdadePet.setText(pets.getRaca());
     }
 
     public void bt_selecionardono_telacadastroservicos_to_telacadastros (View view){
         Intent it = new Intent(this, telacadastros.class);
-        it.putExtra("Dono",Dono.class);
-        startActivity(it);
+        someActivityResultLauncher.launch(it);
+    }
+
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // There are no request codes
+                        Intent data = result.getData();
+                        if(data.getSerializableExtra("Dono")!=null) {
+                            dono = (Dono) data.getSerializableExtra("Dono");
+                            preencheCampos(dono);
+                        }
+                        if(data.getSerializableExtra("servicos")!=null){
+
+                        }
+                    }
+                }
+            });
+
+    private void preencheCampos(Dono dono) {
+        txtNomeDono.setText(dono.getNome());
+        txtEnderecoDono.setText(dono.getEndereco());
+        txtTelefoneDono.setText(dono.getTelefone());
+        spinner.setAdapter(new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,dono.getPets()));
+        //spinner.getSelectedItem();
     }
 
     public void bt_addpet_telacadastroservicos_to_telacadastropet (View view){

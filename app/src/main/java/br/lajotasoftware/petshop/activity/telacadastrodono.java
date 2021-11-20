@@ -52,6 +52,12 @@ public class telacadastrodono extends AppCompatActivity {
         CPFDono=findViewById(R.id.textCPFDonoCad);
         Intent i = getIntent();
         dono= (Dono) i.getSerializableExtra("Dono");
+        if (nomeDono!=null&&telefoneDono!=null&&enderecoDono!=null&&CPFDono!=null){
+            nomeDono.setText(dono.getNome());
+            telefoneDono.setText(dono.getNome());
+            enderecoDono.setText(dono.getNome());
+            CPFDono.setText(dono.getNome());
+        }
     }
 
     /*public void bt_adicionarpets_telacadastrodono_to_telacadastropet (View view){
@@ -100,7 +106,7 @@ public class telacadastrodono extends AppCompatActivity {
         dono.setTelefone(telefoneDono.getText().toString());
         dono.setEndereco(enderecoDono.getText().toString());
         dono.setCPF(CPFDono.getText().toString());
-        Dono.salvar(dono);
+        dono.salvar(dono);
         finish();
     }
     //List<Pets> pets;

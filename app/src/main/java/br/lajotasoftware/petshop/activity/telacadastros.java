@@ -99,8 +99,18 @@ public class telacadastros extends AppCompatActivity{
                 DataSnapshot dataSnapshot = snapshot.child("Dono");
                 donos.clear();
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    Dono dono = postSnapshot.getValue(Dono.class);
-                    donos.add(dono);
+                    Dono dono =new Dono();
+                            dono=postSnapshot.getValue(Dono.class);
+
+                    DataSnapshot dataSnapshotPet =
+                            snapshot.child("Dono").child(dono.getId()+"").child("Pets");
+
+                        for (DataSnapshot postSnapshot2: dataSnapshotPet.getChildren()) {
+                            dono.setPets( postSnapshot2.getValue(Pets.class));
+                        }
+
+
+                        donos.add(dono);
                 }
                 preenche();
             }
@@ -142,10 +152,12 @@ public class telacadastros extends AppCompatActivity{
     }
 
     private void seleciona(int position) {
-        Intent it = new Intent(this, telacadastroservicos.class);
-        it.putExtra("Servico",donos.getClass());
-        someActivityResultLauncher.launch(it);
-        finish();
+        Intent it = getIntent();
+        it.putExtra("Dono",donos.get(position));
+        setResult(RESULT_OK,it);
+
+        onBackPressed();
+
     }
 
     public void bt_finish_telacadastros (View view){
