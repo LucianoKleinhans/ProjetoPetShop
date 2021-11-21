@@ -60,9 +60,9 @@ public class telaservicos extends AppCompatActivity {
     public void createDialog(View view,int position){
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle("O que deseja fazer?");
-        adb.setPositiveButton("Selecionar", new DialogInterface.OnClickListener() {
+        adb.setPositiveButton("Finalizar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Selecionou", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Servico finalizado", Toast.LENGTH_LONG).show();
                 //seleciona(position);
             } });
         adb.setNegativeButton("Editar", new DialogInterface.OnClickListener() {

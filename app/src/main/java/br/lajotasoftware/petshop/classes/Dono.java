@@ -78,7 +78,7 @@ public class Dono implements Serializable {
     }
 
     public String toString() {
-        return id + " - " + nome;
+        return id + " - Nome: " + nome + " -- Telefone: " + telefone;
     }
 
     private static FirebaseDatabase firebaseDatabase;

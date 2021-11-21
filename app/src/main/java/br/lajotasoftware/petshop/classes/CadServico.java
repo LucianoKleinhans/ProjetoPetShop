@@ -35,7 +35,7 @@ public class CadServico implements Serializable {
     private String Total;
 
     public String toString() {
-        return NomeDono +" - Pet: "+ NomePet + " - Total: " + Total;
+        return "Dono: "+ NomeDono +" -- Pet: "+ NomePet + " -- Preco total: " + Total;
     }
 
     public CadServico(String id) {
@@ -279,28 +279,28 @@ public class CadServico implements Serializable {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String id = cs.id;
                         databaseReference.child("CadServico").child(id).child("id").setValue(id);
-                        databaseReference.child("CadServico").child(id).child("Dono").child("IDDono").setValue(cs.getIDDono());
-                        databaseReference.child("CadServico").child(id).child("Dono").child("NomeDono").setValue(cs.getNomeDono());
-                        databaseReference.child("CadServico").child(id).child("Dono").child("TelefoneDono").setValue(cs.getTelefoneDono());
-                        databaseReference.child("CadServico").child(id).child("Dono").child("EnderecoDono").setValue(cs.getEnderecoDono());
-                        databaseReference.child("CadServico").child(id).child("Dono").child("CPFDono").setValue(cs.getCPFDono());
+                        databaseReference.child("CadServico").child(id).child("IDDono").setValue(cs.getIDDono());
+                        databaseReference.child("CadServico").child(id).child("NomeDono").setValue(cs.getNomeDono());
+                        databaseReference.child("CadServico").child(id).child("TelefoneDono").setValue(cs.getTelefoneDono());
+                        databaseReference.child("CadServico").child(id).child("EnderecoDono").setValue(cs.getEnderecoDono());
+                        databaseReference.child("CadServico").child(id).child("CPFDono").setValue(cs.getCPFDono());
 
-                        //databaseReference.child("CadServico").child(id).child("Pet").child("IDPet").setValue(cs.getIdpet());
-                        databaseReference.child("CadServico").child(id).child("Pet").child("NomePet").setValue(cs.getNomePet());
-                        databaseReference.child("CadServico").child(id).child("Pet").child("RacaPet").setValue(cs.getRacaPet());
-                        databaseReference.child("CadServico").child(id).child("Pet").child("EspeciePet").setValue(cs.getEspeciePet());
+                        databaseReference.child("CadServico").child(id).child("IDPet").setValue(cs.getIdpet());
+                        databaseReference.child("CadServico").child(id).child("NomePet").setValue(cs.getNomePet());
+                        databaseReference.child("CadServico").child(id).child("RacaPet").setValue(cs.getRacaPet());
+                        databaseReference.child("CadServico").child(id).child("EspeciePet").setValue(cs.getEspeciePet());
 
-                        databaseReference.child("CadServico").child(id).child("Servico").child("1").child("NomeServico").setValue(cs.getNomeServico1());
-                        databaseReference.child("CadServico").child(id).child("Servico").child("1").child("PrecoServico").setValue(cs.getPrecoServico1());
+                        databaseReference.child("CadServico").child(id).child("NomeServico1").setValue(cs.getNomeServico1());
+                        databaseReference.child("CadServico").child(id).child("PrecoServico1").setValue(cs.getPrecoServico1());
 
-                        databaseReference.child("CadServico").child(id).child("Servico").child("2").child("NomeServico").setValue(cs.getNomeServico2());
-                        databaseReference.child("CadServico").child(id).child("Servico").child("2").child("PrecoServico").setValue(cs.getPrecoServico2());
+                        databaseReference.child("CadServico").child(id).child("NomeServico2").setValue(cs.getNomeServico2());
+                        databaseReference.child("CadServico").child(id).child("PrecoServico2").setValue(cs.getPrecoServico2());
 
-                        databaseReference.child("CadServico").child(id).child("Servico").child("3").child("NomeServico").setValue(cs.getNomeServico3());
-                        databaseReference.child("CadServico").child(id).child("Servico").child("3").child("PrecoServico").setValue(cs.getPrecoServico3());
+                        databaseReference.child("CadServico").child(id).child("NomeServico3").setValue(cs.getNomeServico3());
+                        databaseReference.child("CadServico").child(id).child("PrecoServico3").setValue(cs.getPrecoServico3());
 
-                        databaseReference.child("CadServico").child(id).child("Servico").child("4").child("NomeServico").setValue(cs.getNomeServico4());
-                        databaseReference.child("CadServico").child(id).child("Servico").child("4").child("PrecoServico").setValue(cs.getPrecoServico4());
+                        databaseReference.child("CadServico").child(id).child("NomeServico4").setValue(cs.getNomeServico4());
+                        databaseReference.child("CadServico").child(id).child("PrecoServico4").setValue(cs.getPrecoServico4());
 
                         databaseReference.child("CadServico").child(id).child("Subtotal").setValue(cs.getSubtotal());
                         databaseReference.child("CadServico").child(id).child("Total").setValue(cs.getTotal());
