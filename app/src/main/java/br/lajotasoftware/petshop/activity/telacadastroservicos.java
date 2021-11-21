@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import br.lajotasoftware.petshop.R;
 import br.lajotasoftware.petshop.classes.CadServico;
@@ -92,6 +93,14 @@ public class telacadastroservicos extends AppCompatActivity {
             }
         });
     }
+    String IDDono = null;
+    String CPFDono;
+
+    String IDPet;
+    String especie;
+    String datanascimento;
+    String observacao;
+
     Float preco1 = Float.valueOf(0);
     Float preco2 = Float.valueOf(0);
     Float preco3 = Float.valueOf(0);
@@ -118,9 +127,10 @@ public class telacadastroservicos extends AppCompatActivity {
                     }
                 }
             });
+
     private void preencheCampoDono(Dono dono) {
-        String IDDono = dono.getId();
-        String CPFDono = dono.getCPF();
+        IDDono = dono.getId();
+        CPFDono = dono.getCPF();
         txtNomeDono.setText(dono.getNome());
         txtEnderecoDono.setText(dono.getEndereco());
         txtTelefoneDono.setText(dono.getTelefone());
@@ -129,10 +139,10 @@ public class telacadastroservicos extends AppCompatActivity {
 
     private void PreencheCampoPet(Pets pets) {
         Date currentTime = Calendar.getInstance().getTime();
-        String IDPet = pets.getId();
-        String especie = pets.getEspecie();
-        String datanascimento = pets.getDatanascimento();
-        String observacao = pets.getObservacao();
+        IDPet = pets.getId();
+        especie = pets.getEspecie();
+        datanascimento = pets.getDatanascimento();
+        observacao = pets.getObservacao();
         //Integer idade = androi datanascimento
         txtNomePet.setText(pets.getNome());
         txtIdadePet.setText(pets.getDatanascimento());
@@ -210,11 +220,26 @@ public class telacadastroservicos extends AppCompatActivity {
     }
 
     public void bt_concluir_telacadastroservicos_to_telaservicos (View view){
-        dono.setNome(txtNomeDono.getText().toString());
-        dono.setTelefone(txtTelefoneDono.getText().toString());
-        dono.setEndereco(txtEnderecoDono.getText().toString());
-        dono.setCPF(dono.getCPF());
-       // cadServico.salvar(dono,pet,servico);
+        cadServico.setIddono(IDDono);
+        cadServico.setNomedono(txtNomeDono.getText().toString());
+        cadServico.setTelefonedono(txtTelefoneDono.getText().toString());
+        cadServico.setEnderecodono(txtEnderecoDono.getText().toString());
+        cadServico.setCpfdono(CPFDono.toString());
+        cadServico.setIdpet(IDPet.toString());
+        cadServico.setEspeciepet(especie.toString());
+        cadServico.setNomepet(txtNomePet.toString());
+        cadServico.setRaca(txtRacaPet.toString());
+        cadServico.setServico1(txtServicoNome1.toString());
+        cadServico.setServico2(txtServicoNome2.toString());
+        cadServico.setServico3(txtServicoNome3.toString());
+        cadServico.setServico4(txtServicoNome4.toString());
+        cadServico.setPrecoServico1(txtServicoPreco1.toString());
+        cadServico.setPrecoServico2(txtServicoPreco2.toString());
+        cadServico.setPrecoServico3(txtServicoPreco3.toString());
+        cadServico.setPrecoServico4(txtServicoPreco4.toString());
+        cadServico.setSubtotal(SubTotal.toString());
+        cadServico.setTotal(ValorTotal.toString());
+        cadServico.salvar(cadServico);
         onBackPressed();
     }
 
