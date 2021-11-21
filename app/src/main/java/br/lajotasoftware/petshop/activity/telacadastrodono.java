@@ -63,12 +63,6 @@ public class telacadastrodono extends AppCompatActivity {
         }
     }
 
-    /*public void bt_adicionarpets_telacadastrodono_to_telacadastropet (View view){
-        Intent it = new Intent(this, telacadastropet.class);
-        it.putExtra("pets",new Pets());
-        someActivityResultLauncher.launch(it);
-    }*/
-
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -112,42 +106,4 @@ public class telacadastrodono extends AppCompatActivity {
         dono.salvar(dono);
         finish();
     }
-    //List<Pets> pets;
-    //lista pets ---------------------------------------------------------------------------------------------------------
-    /*
-    ArrayAdapter arrayAdapter;
-    private void preenche() {
-        if (arrayAdapter == null) {
-            arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, pets);
-            listView.setAdapter(arrayAdapter);
-        } else {
-            arrayAdapter.notifyDataSetChanged();
-        }
-    }
-    List<Pets> pets;
-    public void listar(){
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                DataSnapshot dataSnapshot = snapshot.child("Donos").child(dono.getId().toString()).child("pets");
-                pets.clear();
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    Pets pet = postSnapshot.getValue(Pets.class);
-                    pets.add(pet);
-                }
-                preenche();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }*/
-
-    /*
-    private void doSomeOperations() {
-        listar();
-    }
-     */
-    //lista pets ---------------------------------------------------------------------------------------------------------
 }

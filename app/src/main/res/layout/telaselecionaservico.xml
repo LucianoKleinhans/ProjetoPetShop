@@ -35,12 +35,12 @@
         android:layout_width="395dp"
         android:layout_height="495dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="10dp"
         android:cacheColorHint="#BFBFBF"
         android:foregroundTint="#C8C8C8"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btcadservico_selecionaservico"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

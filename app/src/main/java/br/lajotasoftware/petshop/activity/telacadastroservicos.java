@@ -59,7 +59,6 @@ public class telacadastroservicos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.telacadastroservicos);
-        databaseReference= DataFirebase.getDatabaseReference();
         Intent i = getIntent();
         txtNomeDono=findViewById(R.id.TextNomeDono);
         txtEnderecoDono=findViewById(R.id.TextEnderecoDono);
@@ -79,7 +78,6 @@ public class telacadastroservicos extends AppCompatActivity {
         txtValorTotal=findViewById(R.id.TextValorTotal);
         cadServico = (CadServico) i.getSerializableExtra("CadServico");
         spinner= findViewById(R.id.spinner);
-        //listaServico=findViewById(R.id.ListaServicos);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
@@ -93,21 +91,18 @@ public class telacadastroservicos extends AppCompatActivity {
             }
         });
     }
-    String IDDono = null;
+    String IDDono;
     String CPFDono;
-
     String IDPet;
     String especie;
     String datanascimento;
     String observacao;
-
     Float preco1 = Float.valueOf(0);
     Float preco2 = Float.valueOf(0);
     Float preco3 = Float.valueOf(0);
     Float preco4 = Float.valueOf(0);
     Float SubTotal = Float.valueOf(0);
     Float ValorTotal = Float.valueOf(0);
-
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -127,8 +122,7 @@ public class telacadastroservicos extends AppCompatActivity {
                     }
                 }
             });
-
-    private void preencheCampoDono(Dono dono) {
+    public void preencheCampoDono(Dono dono) {
         IDDono = dono.getId();
         CPFDono = dono.getCPF();
         txtNomeDono.setText(dono.getNome());
@@ -136,9 +130,8 @@ public class telacadastroservicos extends AppCompatActivity {
         txtTelefoneDono.setText(dono.getTelefone());
         spinner.setAdapter(new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,dono.getPets()));
     }
-
     private void PreencheCampoPet(Pets pets) {
-        Date currentTime = Calendar.getInstance().getTime();
+        //Date currentTime = Calendar.getInstance().getTime();
         IDPet = pets.getId();
         especie = pets.getEspecie();
         datanascimento = pets.getDatanascimento();
@@ -148,36 +141,27 @@ public class telacadastroservicos extends AppCompatActivity {
         txtIdadePet.setText(pets.getDatanascimento());
         txtRacaPet.setText(pets.getRaca());
     }
-
     private void PreencheListaServico(Servico servico) {
-
-        //try {
-            if(txtServicoNome1.getText().length() == 0){
+        if(txtServicoNome1.getText().length() == 0){
                 txtServicoNome1.setText(servico.getNome());
                 txtServicoPreco1.setText(servico.getPreco());
                 AtualizaValor();
-            }else if (txtServicoNome1.getText().length() > 0 && txtServicoNome2.getText().length() == 0){
-                txtServicoNome2.setText(servico.getNome());
-                txtServicoPreco2.setText(servico.getPreco());
-                AtualizaValor();
-            }else if (txtServicoNome2.getText().length() > 0 && txtServicoNome3.getText().length() == 0){
-                txtServicoNome3.setText(servico.getNome());
-                txtServicoPreco3.setText(servico.getPreco());
-                AtualizaValor();
-            }else if (txtServicoNome3.getText().length() > 0 && txtServicoNome4.getText().length() == 0){
-                txtServicoNome4.setText(servico.getNome());
-                txtServicoPreco4.setText(servico.getPreco());
-                AtualizaValor();
-            }else{
-                Toast.makeText(getApplicationContext(), "Maximo de serviço selecionado!", Toast.LENGTH_LONG).show();
-            }
-        /*}
-        catch(IllegalArgumentException e) {
+        }else if (txtServicoNome1.getText().length() > 0 && txtServicoNome2.getText().length() == 0){
+            txtServicoNome2.setText(servico.getNome());
+            txtServicoPreco2.setText(servico.getPreco());
+            AtualizaValor();
+        }else if (txtServicoNome2.getText().length() > 0 && txtServicoNome3.getText().length() == 0){
+            txtServicoNome3.setText(servico.getNome());
+            txtServicoPreco3.setText(servico.getPreco());
+            AtualizaValor();
+        }else if (txtServicoNome3.getText().length() > 0 && txtServicoNome4.getText().length() == 0){
+            txtServicoNome4.setText(servico.getNome());
+            txtServicoPreco4.setText(servico.getPreco());
+            AtualizaValor();
+        }else{
             Toast.makeText(getApplicationContext(), "Maximo de serviço selecionado!", Toast.LENGTH_LONG).show();
-        }//String id = (Integer.parseInt(servicos.get(servicos.size() - 1).getId()) + 1) + "";*/
-
+        }
     }
-
     private void AtualizaValor() {
         if (preco1==0) {
             preco1 = Float.parseFloat((String) txtServicoPreco1.getText());
@@ -192,57 +176,46 @@ public class telacadastroservicos extends AppCompatActivity {
             preco4 = Float.parseFloat((String) txtServicoPreco4.getText());
             SubTotal = SubTotal + preco4;
         }
-
         txtValorSubTotal.setText(SubTotal+"");
         ValorTotal = (SubTotal);
         txtValorTotal.setText(ValorTotal+"");
     }
-
-   /* public void bt_addpet_telacadastroservicos_to_telacadastropet (View view){
-        Intent it = new Intent(this, telacadastropet.class);
-        startActivity(it);
-    }*/
-
     public void bt_selecionardono_telacadastroservicos_to_telacadastros (View view){
-        Intent it = new Intent(this, telacadastros.class);
-        someActivityResultLauncher.launch(it);
+        Intent it2 = new Intent(this, telacadastros.class);
+        someActivityResultLauncher.launch(it2);
     }
-
     public void bt_selecionarservico_telacadastroservicos_to_telaselecionaservico (View view){
-        Intent it = new Intent(this, telaselecionaservico.class);
-        someActivityResultLauncher.launch(it);
+        Intent it3 = new Intent(this, telaselecionaservico.class);
+        someActivityResultLauncher.launch(it3);
     }
-
     public void bt_finish_telacadastroservicos (View view){
         finish();
         //Intent it = new Intent(this, telaservicos.class);
         //startActivity(it);
     }
-
     public void bt_concluir_telacadastroservicos_to_telaservicos (View view){
-        cadServico.setIddono(IDDono);
-        cadServico.setNomedono(txtNomeDono.getText().toString());
-        cadServico.setTelefonedono(txtTelefoneDono.getText().toString());
-        cadServico.setEnderecodono(txtEnderecoDono.getText().toString());
-        cadServico.setCpfdono(CPFDono.toString());
-        cadServico.setIdpet(IDPet.toString());
-        cadServico.setEspeciepet(especie.toString());
-        cadServico.setNomepet(txtNomePet.toString());
-        cadServico.setRaca(txtRacaPet.toString());
-        cadServico.setServico1(txtServicoNome1.toString());
-        cadServico.setServico2(txtServicoNome2.toString());
-        cadServico.setServico3(txtServicoNome3.toString());
-        cadServico.setServico4(txtServicoNome4.toString());
-        cadServico.setPrecoServico1(txtServicoPreco1.toString());
-        cadServico.setPrecoServico2(txtServicoPreco2.toString());
-        cadServico.setPrecoServico3(txtServicoPreco3.toString());
-        cadServico.setPrecoServico4(txtServicoPreco4.toString());
+        cadServico.setIDDono(IDDono);
+        cadServico.setNomeDono(txtNomeDono.getText().toString());
+        cadServico.setTelefoneDono(txtTelefoneDono.getText().toString());
+        cadServico.setEnderecoDono(txtEnderecoDono.getText().toString());
+        cadServico.setCPFDono(CPFDono);
+        cadServico.setIdpet(IDPet);
+        cadServico.setEspeciePet(especie);
+        cadServico.setNomePet(txtNomePet.getText().toString());
+        cadServico.setRacaPet(txtRacaPet.getText().toString());
+        cadServico.setNomeServico1(txtServicoNome1.getText().toString());
+        cadServico.setNomeServico2(txtServicoNome2.getText().toString());
+        cadServico.setNomeServico3(txtServicoNome3.getText().toString());
+        cadServico.setNomeServico4(txtServicoNome4.getText().toString());
+        cadServico.setPrecoServico1(txtServicoPreco1.getText().toString());
+        cadServico.setPrecoServico2(txtServicoPreco2.getText().toString());
+        cadServico.setPrecoServico3(txtServicoPreco3.getText().toString());
+        cadServico.setPrecoServico4(txtServicoPreco4.getText().toString());
         cadServico.setSubtotal(SubTotal.toString());
         cadServico.setTotal(ValorTotal.toString());
         cadServico.salvar(cadServico);
         onBackPressed();
     }
-
     public void setDatabaseReference(DatabaseReference databaseReference) {
         this.databaseReference = databaseReference;
     }

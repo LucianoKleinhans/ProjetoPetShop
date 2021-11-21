@@ -112,37 +112,4 @@ public class Servico implements Serializable {
             }
         }
     }
-
-    /*public static void excluir(Servico s){
-        if(databaseReference==null){
-            inicio();
-            List<Servico> servicos = new ArrayList();
-            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    DataSnapshot dataSnapshot = snapshot.child("Servico");
-                    servicos.clear();
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        Servico servico = postSnapshot.getValue(Servico.class);
-                        servicos.add(servico);
-                    }
-                    String id = (Integer.parseInt(servicos.get(servicos.size() - 1).getId()) + 1) + "";
-                    databaseReference.child("Servico").child(id).removeValue();
-                    databaseReference=null;
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
-        //databaseReference.child("Servico").child(s.getId()+"").removeValue();
-    }
-    public static void editar(Servico s) {
-        databaseReference.child("Servico").child(s.getId().toString()).child("nome").setValue(s.getNome());
-        databaseReference.child("Servico").child(s.getId().toString()).child("preco").setValue(s.getPreco());
-
-       // databaseReference.child("Servico").child("2").child("pet").child("id")setValue(s.getPreco());
-    }*/
 }
