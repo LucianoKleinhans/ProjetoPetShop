@@ -115,7 +115,7 @@
 
     <TextView
         android:id="@+id/textNomePet"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="20dp"
         android:text="@string/text_nomepet_cadservico"
         android:textColor="#ffffff"
@@ -123,22 +123,22 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView
-        android:id="@+id/textIdadePet"
-        android:layout_width="50dp"
+        android:id="@+id/txtEspeciePet"
+        android:layout_width="70dp"
         android:layout_height="20dp"
-        android:text="@string/text_idadepet_cadservico"
+        android:text="@string/txtespecie_tcs"
         android:textColor="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textNomePet" />
 
     <TextView
         android:id="@+id/textRacaPet"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="20dp"
         android:text="@string/text_racapet_cadservicoo"
         android:textColor="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/textIdadePet" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEspeciePet" />
 
     <TextView
         android:id="@+id/textTotal"
@@ -173,7 +173,7 @@
         android:layout_marginEnd="4dp"
         android:importantForAutofill="no"
         android:inputType="number"
-        android:text="0"
+        android:text="@string/_total_0"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -185,7 +185,7 @@
         android:layout_width="98dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
-        android:text="0"
+        android:text="@string/_subtotal_0"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/TextSubTotal"
@@ -203,27 +203,27 @@
 
     <TextView
         android:id="@+id/textNomePet2"
-        android:layout_width="270dp"
+        android:layout_width="250dp"
         android:layout_height="20dp"
         android:textColor="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/textNomePet"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView
-        android:id="@+id/textIdadePet2"
-        android:layout_width="270dp"
+        android:id="@+id/txtEspeciePet2"
+        android:layout_width="250dp"
         android:layout_height="20dp"
         android:textColor="#ffffff"
-        app:layout_constraintStart_toEndOf="@+id/textIdadePet"
+        app:layout_constraintStart_toEndOf="@+id/txtEspeciePet"
         app:layout_constraintTop_toBottomOf="@+id/textNomePet2" />
 
     <TextView
         android:id="@+id/textRacaPet2"
-        android:layout_width="270dp"
+        android:layout_width="250dp"
         android:layout_height="20dp"
         android:textColor="#ffffff"
         app:layout_constraintStart_toEndOf="@+id/textRacaPet"
-        app:layout_constraintTop_toBottomOf="@+id/textIdadePet2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEspeciePet2" />
 
     <TextView
         android:id="@+id/TextEnderecoDono"

@@ -68,7 +68,7 @@ public class telaservicos extends AppCompatActivity {
         adb.setNegativeButton("Editar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Editar", Toast.LENGTH_LONG).show();
-                //editar(position);
+                editar(position);
                 finish();
             } });
         adb.setNeutralButton("Excluir", new DialogInterface.OnClickListener() {
@@ -109,6 +109,12 @@ public class telaservicos extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+    }
+
+    private void editar(int position) {
+        Intent it = new Intent(this,telacadastroservicos.class);
+        it.putExtra("CadServico",cadServicos.get(position));
+        someActivityResultLauncher.launch(it);
     }
 
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(

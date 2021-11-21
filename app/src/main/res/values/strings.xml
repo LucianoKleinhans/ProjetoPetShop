@@ -54,5 +54,8 @@
     <string name="bt_concluir_addservico">Concluir</string>
     <string name="text_racapet_cadservicoo">Raca:</string>
     <string name="textviewservico1">TextView</string>
+    <string name="_total_0">0</string>
+    <string name="_subtotal_0">0</string>
+    <string name="txtespecie_tcs">Especie:</string>
 
 </resources>

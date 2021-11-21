@@ -7,7 +7,6 @@ public class Pets implements Serializable {
     private String nome;
     private String especie;
     private String raca;
-    private String datanascimento;
     private String observacao;
 
     public Pets(String id) {
@@ -47,14 +46,6 @@ public class Pets implements Serializable {
 
     public void setRaca(String raca) {
         this.raca = raca;
-    }
-
-    public String getDatanascimento() {
-        return datanascimento;
-    }
-
-    public void setDatanascimento(String datanascimento) {
-        this.datanascimento = datanascimento;
     }
 
     public String getObservacao() {

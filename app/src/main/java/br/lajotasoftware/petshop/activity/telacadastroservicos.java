@@ -19,10 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-
 import br.lajotasoftware.petshop.R;
 import br.lajotasoftware.petshop.classes.CadServico;
 import br.lajotasoftware.petshop.classes.Dono;
@@ -36,7 +32,7 @@ public class telacadastroservicos extends AppCompatActivity {
     private TextView txtEnderecoDono;
     private TextView txtTelefoneDono;
     private TextView txtNomePet;
-    private TextView txtIdadePet;
+    private TextView txtEspeciePet;
     private TextView txtRacaPet;
     private TextView txtServicoNome1;
     private TextView txtServicoNome2;
@@ -48,7 +44,6 @@ public class telacadastroservicos extends AppCompatActivity {
     private TextView txtServicoPreco4;
     private TextView txtValorSubTotal;
     private EditText txtValorTotal;
-    //private ListView listaServico;
     private Spinner spinner;
     private CadServico cadServico;
     private Dono dono;
@@ -64,8 +59,8 @@ public class telacadastroservicos extends AppCompatActivity {
         txtEnderecoDono=findViewById(R.id.TextEnderecoDono);
         txtTelefoneDono=findViewById(R.id.TextTelefone1Dono);
         txtNomePet=findViewById(R.id.textNomePet2);
-        txtIdadePet=findViewById(R.id.textIdadePet2);
         txtRacaPet=findViewById(R.id.textRacaPet2);
+        txtEspeciePet=findViewById(R.id.txtEspeciePet2);
         txtServicoNome1=findViewById(R.id.txtServicoNome1);
         txtServicoNome2=findViewById(R.id.txtServicoNome2);
         txtServicoNome3=findViewById(R.id.txtServicoNome3);
@@ -78,6 +73,25 @@ public class telacadastroservicos extends AppCompatActivity {
         txtValorTotal=findViewById(R.id.TextValorTotal);
         cadServico = (CadServico) i.getSerializableExtra("CadServico");
         spinner= findViewById(R.id.spinner);
+        if (txtNomeDono!=null&&txtNomePet!=null&&txtValorTotal!=null){
+            txtNomeDono.setText(cadServico.getNomeDono());
+            txtEnderecoDono.setText(cadServico.getEnderecoDono());
+            txtTelefoneDono.setText(cadServico.getTelefoneDono());
+            txtNomePet.setText(cadServico.getNomePet());
+            txtRacaPet.setText(cadServico.getRacaPet());
+            txtEspeciePet.setText(cadServico.getEspeciePet());
+            txtServicoNome1.setText(cadServico.getNomeServico1());
+            txtServicoNome2.setText(cadServico.getNomeServico2());
+            txtServicoNome3.setText(cadServico.getNomeServico3());
+            txtServicoNome4.setText(cadServico.getNomeServico4());
+            txtServicoPreco1.setText(cadServico.getPrecoServico1());
+            txtServicoPreco2.setText(cadServico.getPrecoServico2());
+            txtServicoPreco3.setText(cadServico.getPrecoServico3());
+            txtServicoPreco4.setText(cadServico.getPrecoServico4());
+            txtValorSubTotal.setText(cadServico.getSubtotal());
+            txtValorTotal.setText(cadServico.getTotal());
+
+        }
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
@@ -95,7 +109,6 @@ public class telacadastroservicos extends AppCompatActivity {
     String CPFDono;
     String IDPet;
     String especie;
-    String datanascimento;
     String observacao;
     Float preco1 = Float.valueOf(0);
     Float preco2 = Float.valueOf(0);
@@ -134,12 +147,10 @@ public class telacadastroservicos extends AppCompatActivity {
         //Date currentTime = Calendar.getInstance().getTime();
         IDPet = pets.getId();
         especie = pets.getEspecie();
-        datanascimento = pets.getDatanascimento();
         observacao = pets.getObservacao();
-        //Integer idade = androi datanascimento
         txtNomePet.setText(pets.getNome());
-        txtIdadePet.setText(pets.getDatanascimento());
         txtRacaPet.setText(pets.getRaca());
+        txtEspeciePet.setText(pets.getEspecie());
     }
     private void PreencheListaServico(Servico servico) {
         if(txtServicoNome1.getText().length() == 0){
@@ -177,7 +188,7 @@ public class telacadastroservicos extends AppCompatActivity {
             SubTotal = SubTotal + preco4;
         }
         txtValorSubTotal.setText(SubTotal+"");
-        ValorTotal = (SubTotal);
+        ValorTotal = SubTotal;
         txtValorTotal.setText(ValorTotal+"");
     }
     public void bt_selecionardono_telacadastroservicos_to_telacadastros (View view){
@@ -212,7 +223,7 @@ public class telacadastroservicos extends AppCompatActivity {
         cadServico.setPrecoServico3(txtServicoPreco3.getText().toString());
         cadServico.setPrecoServico4(txtServicoPreco4.getText().toString());
         cadServico.setSubtotal(SubTotal.toString());
-        cadServico.setTotal(ValorTotal.toString());
+        cadServico.setTotal(txtValorTotal.getText().toString());
         cadServico.salvar(cadServico);
         onBackPressed();
     }
