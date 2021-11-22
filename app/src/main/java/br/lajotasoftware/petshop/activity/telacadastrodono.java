@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import androidx.activity.result.ActivityResult;
@@ -40,6 +41,7 @@ public class telacadastrodono extends AppCompatActivity {
     private EditText telefoneDono;
     private EditText enderecoDono;
     private EditText CPFDono;
+    private ListView listaPets;
     private Dono dono;
 
     @Override
@@ -50,17 +52,19 @@ public class telacadastrodono extends AppCompatActivity {
         telefoneDono=findViewById(R.id.textTelDonoCad);
         enderecoDono=findViewById(R.id.textEndDonoCad);
         CPFDono=findViewById(R.id.textCPFDonoCad);
+        listaPets= findViewById(R.id.ListPetsCadDono);
         Intent i = getIntent();
         dono= (Dono) i.getSerializableExtra("Dono");
+        if (nomeDono!=null&&telefoneDono!=null&&enderecoDono!=null&&CPFDono!=null){
+            nomeDono.setText(dono.getNome());
+            telefoneDono.setText(dono.getTelefone());
+            enderecoDono.setText(dono.getEndereco());
+            CPFDono.setText(dono.getCPF());
+            listaPets.setAdapter(new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,dono.getPets()));
+        }
     }
 
-    /*public void bt_adicionarpets_telacadastrodono_to_telacadastropet (View view){
-        Intent it = new Intent(this, telacadastropet.class);
-        it.putExtra("pets",new Pets());
-        someActivityResultLauncher.launch(it);
-    }
-
-    */ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -84,8 +88,10 @@ public class telacadastrodono extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1){
-            Pets pets= (Pets) data.getSerializableExtra("Pets");
-            dono.setPets(pets);
+            if(data!=null){
+                Pets pets= (Pets) data.getSerializableExtra("Pets");
+                dono.setPets(pets);
+            }
         }
     }
 
@@ -100,45 +106,7 @@ public class telacadastrodono extends AppCompatActivity {
         dono.setTelefone(telefoneDono.getText().toString());
         dono.setEndereco(enderecoDono.getText().toString());
         dono.setCPF(CPFDono.getText().toString());
-        Dono.salvar(dono);
+        dono.salvar(dono);
         finish();
     }
-    //List<Pets> pets;
-    //lista pets ---------------------------------------------------------------------------------------------------------
-    /*
-    ArrayAdapter arrayAdapter;
-    private void preenche() {
-        if (arrayAdapter == null) {
-            arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, pets);
-            listView.setAdapter(arrayAdapter);
-        } else {
-            arrayAdapter.notifyDataSetChanged();
-        }
-    }
-    List<Pets> pets;
-    public void listar(){
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                DataSnapshot dataSnapshot = snapshot.child("Donos").child(dono.getId().toString()).child("pets");
-                pets.clear();
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    Pets pet = postSnapshot.getValue(Pets.class);
-                    pets.add(pet);
-                }
-                preenche();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }*/
-
-    /*
-    private void doSomeOperations() {
-        listar();
-    }
-     */
-    //lista pets ---------------------------------------------------------------------------------------------------------
 }

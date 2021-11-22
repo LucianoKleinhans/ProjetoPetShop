@@ -19,14 +19,13 @@ public class Dono implements Serializable {
     private String telefone;
     private String CPF;
     private String endereco;
-    static List<Pets> pets;
+    private List<Pets> pets;
 
     public Dono(String id) {
         this.id = id;
     }
 
-    public Dono() {
-    }
+    public Dono() {}
 
     public String getId() {
         return id;
@@ -65,7 +64,7 @@ public class Dono implements Serializable {
     }
 
     public List<Pets> getPets() {
-        return pets;
+        return pets!=null?pets:new LinkedList<>();
     }
 
     public void setPets(Pets pet) {
@@ -73,13 +72,12 @@ public class Dono implements Serializable {
             pets = new LinkedList<>();}
         pets.add(pet);
     }
-
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
     public String toString() {
-        return id + " - " + nome;
+        return id + " - Nome: " + nome + " - Telefone: " + telefone;
     }
 
     private static FirebaseDatabase firebaseDatabase;
@@ -96,7 +94,7 @@ public class Dono implements Serializable {
             inicio();
         return databaseReference;
     }
-    public static void salvar(Dono d) {
+    public  void salvar(Dono d) {
         if (d.id == null) {
             if (databaseReference == null) {
                 inicio();
@@ -117,10 +115,7 @@ public class Dono implements Serializable {
                         databaseReference.child("Dono").child(id).child("CPF").setValue(d.getCPF());
                         databaseReference.child("Dono").child(id).child("telefone").setValue(d.getTelefone());
                         for (int i = 0; i < pets.size(); i++) {
-                            //String idpet = i+"";
                             databaseReference.child("Dono").child(id).child("Pets").setValue(d.getPets());
-                            //databaseReference.child("Dono").child(id).child("Pets").child(idpet).child("id").setValue(idpet);
-
                         }
                         databaseReference=null;
                     }
@@ -144,6 +139,7 @@ public class Dono implements Serializable {
                         databaseReference.child("Dono").child(id).child("telefone").setValue(d.getTelefone());
                         int idpet = d.getPets().size()+1;
                         for (int i = idpet; i < pets.size(); i++) {
+                            //databaseReference.child("Dono").child(id).child("Pets").child(i)
                             databaseReference.child("Dono").child(id).child("Pets").setValue(d.getPets());
                             databaseReference=null;
                         }
@@ -158,11 +154,4 @@ public class Dono implements Serializable {
             }
         }
     }
-    /*public static void excluir(Servico s){
-        databaseReference.child("Servico").child(s.getId()+"").removeValue();
-    }
-    public static void editar(Servico s) {
-        databaseReference.child("Servico").child(s.getId().toString()).child("nome").setValue(s.getNome());
-        databaseReference.child("Servico").child(s.getId().toString()).child("preco").setValue(s.getPreco());
-    }*/
 }

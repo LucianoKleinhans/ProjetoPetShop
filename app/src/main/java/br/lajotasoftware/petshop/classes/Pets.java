@@ -7,7 +7,6 @@ public class Pets implements Serializable {
     private String nome;
     private String especie;
     private String raca;
-    private String datanascimento;
     private String observacao;
 
     public Pets(String id) {
@@ -49,14 +48,6 @@ public class Pets implements Serializable {
         this.raca = raca;
     }
 
-    public String getDatanascimento() {
-        return datanascimento;
-    }
-
-    public void setDatanascimento(String datanascimento) {
-        this.datanascimento = datanascimento;
-    }
-
     public String getObservacao() {
         return observacao;
     }
@@ -67,7 +58,7 @@ public class Pets implements Serializable {
 
     @Override
     public String toString() {
-        return nome +"-"+ especie +"-"+ raca +"-"+ datanascimento +"-"+ observacao;
+        return nome +" - "+ especie;
     }
 
 }

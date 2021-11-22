@@ -6,18 +6,41 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Petshop"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/imgpetshop"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetShop">
-        <activity android:name=".activity.telaservicos"></activity>
-        <activity android:name=".activity.telacadastros"></activity>
-        <activity android:name=".activity.telacadastrodono"></activity>
-        <activity android:name=".activity.telacadastroservicos"></activity>
-        <activity android:name=".activity.telacadastropet"></activity>
-        <activity android:name=".activity.telaselecionaservico"></activity>
-        <activity android:name=".activity.telaadicionaservico"></activity>
+
+        <activity
+            android:name=".activity.telaservicos"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".activity.telacadastros"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".activity.telacadastrodono"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".activity.telacadastroservicos"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".activity.telacadastropet"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".activity.telaselecionaservico"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".activity.telaadicionaservico"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
         <activity
             android:name=".activity.telamain"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

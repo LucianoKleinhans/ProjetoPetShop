@@ -67,20 +67,17 @@ public class telaselecionaservico extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Selecionou", Toast.LENGTH_LONG).show();
                 seleciona(position);
-                finish();
             } });
         adb.setNegativeButton("Editar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Editar", Toast.LENGTH_LONG).show();
                 editar(position);
-                finish();
             } });
         adb.setNeutralButton("Excluir", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Servico Excluido", Toast.LENGTH_LONG).show();
                 Servico s = servicos.get(position);
                 databaseReference.child("Servico").child(s.getId()).removeValue();
-                finish();
             } });
         AlertDialog alertDialog = adb.create();
         alertDialog.show();
@@ -104,7 +101,8 @@ public class telaselecionaservico extends AppCompatActivity {
                 DataSnapshot dataSnapshot = snapshot.child("Servico");
                 servicos.clear();
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    Servico servico = postSnapshot.getValue(Servico.class);
+                    Servico servico = new Servico();
+                    servico = postSnapshot.getValue(Servico.class);
                     servicos.add(servico);
                 }
                 preenche();
@@ -149,14 +147,9 @@ public class telaselecionaservico extends AppCompatActivity {
     }
 
     private void seleciona(int position) {
-        Intent it = new Intent(this,telacadastroservicos.class);
+        Intent it = getIntent();
         it.putExtra("Servico",servicos.get(position));
-        someActivityResultLauncher.launch(it);
-        finish();
-    }
-
-    public void bt_confirmar_telaselecionaservico_to_telacadastroservicos (View view){
-        Intent it = new Intent(this, telacadastroservicos.class);
-        startActivity(it);
+        setResult(RESULT_OK,it);
+        onBackPressed();
     }
 }

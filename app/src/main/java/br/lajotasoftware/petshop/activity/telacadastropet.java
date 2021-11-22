@@ -21,7 +21,6 @@ public class telacadastropet extends AppCompatActivity {
     private EditText nomePet;
     private EditText especiePet;
     private EditText racaPet;
-    private EditText dataNascimentoPet;
     private EditText observacoes;
     private Pets pets;
 
@@ -32,7 +31,6 @@ public class telacadastropet extends AppCompatActivity {
         nomePet=findViewById(R.id.TextNomePetCad);
         especiePet=findViewById(R.id.TextEspeciePetCad);
         racaPet=findViewById(R.id.TextRacaPetCad);
-        dataNascimentoPet=findViewById(R.id.EditDataNascPetCad);
         observacoes=findViewById(R.id.TextObsPetCad);
         Intent i = getIntent();
         pets= (Pets) i.getSerializableExtra("Pets");
@@ -52,7 +50,6 @@ public class telacadastropet extends AppCompatActivity {
         pets.setNome(nomePet.getText().toString());
         pets.setEspecie(especiePet.getText().toString());
         pets.setRaca(racaPet.getText().toString());
-        pets.setDatanascimento(dataNascimentoPet.getText().toString());
         pets.setObservacao(observacoes.getText().toString());
         Intent it = new Intent();
         it.putExtra("Pets",pets);

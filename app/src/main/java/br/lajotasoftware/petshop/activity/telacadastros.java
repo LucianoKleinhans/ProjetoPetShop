@@ -63,20 +63,17 @@ public class telacadastros extends AppCompatActivity{
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Selecionou", Toast.LENGTH_LONG).show();
                 seleciona(position);
-                finish();
             } });
         adb.setNegativeButton("Editar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int which) {
                 Toast.makeText(getApplicationContext(),"Editar", Toast.LENGTH_LONG).show();
                 editar(position);
-                finish();
             } });
         adb.setNeutralButton("Excluir", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int which) {
               Toast.makeText(getApplicationContext(), "Cadastro Excluido", Toast.LENGTH_LONG).show();
               Dono d = donos.get(position);
-              databaseReference.child("Dono").child(d.getId()).removeValue();
-              finish();
+              databaseReference.child("Dono").child(d.getId()).removeValue();;
             } });
         AlertDialog alertDialog = adb.create();
         alertDialog.show();
@@ -99,8 +96,18 @@ public class telacadastros extends AppCompatActivity{
                 DataSnapshot dataSnapshot = snapshot.child("Dono");
                 donos.clear();
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-                    Dono dono = postSnapshot.getValue(Dono.class);
-                    donos.add(dono);
+                    Dono dono =new Dono();
+                            dono=postSnapshot.getValue(Dono.class);
+
+                    DataSnapshot dataSnapshotPet =
+                            snapshot.child("Dono").child(dono.getId()+"").child("Pets");
+
+                        for (DataSnapshot postSnapshot2: dataSnapshotPet.getChildren()) {
+                            dono.setPets( postSnapshot2.getValue(Pets.class));
+                        }
+
+
+                        donos.add(dono);
                 }
                 preenche();
             }
@@ -142,10 +149,12 @@ public class telacadastros extends AppCompatActivity{
     }
 
     private void seleciona(int position) {
-        Intent it = new Intent(this, telacadastroservicos.class);
-        it.putExtra("Servico",donos.getClass());
-        someActivityResultLauncher.launch(it);
-        finish();
+        Intent it = getIntent();
+        it.putExtra("Dono",donos.get(position));
+        setResult(RESULT_OK,it);
+
+        onBackPressed();
+
     }
 
     public void bt_finish_telacadastros (View view){
