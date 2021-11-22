@@ -7,153 +7,163 @@
     android:layout_height="match_parent"
     tools:context=".activity.telacadastrodono">
 
-    <EditText
-        android:id="@+id/TextNomeDonoCad"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="@string/text_nomedono_caddono"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/textTelDonoCad"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="@string/text_telefonedono_caddono"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextNomeDonoCad" />
-
-    <EditText
-        android:id="@+id/textEndDonoCad"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="@string/text_enderecodono_caddono"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTelDonoCad" />
-
-    <EditText
-        android:id="@+id/textCPFDonoCad"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="@string/text_cpfdono_caddono"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEndDonoCad" />
-
-    <TextView
-        android:id="@+id/TextPets"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="@string/text_listapets_caddono"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCPFDonoCad" />
-
-    <Button
-        android:id="@+id/btCancelarDonoCad"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="1dp"
-        android:backgroundTint="#730000"
-        android:onClick="bt_finish_telacadastrodono"
-        android:text="@string/bt_cancelar_caddono"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BtAddPetCadDono" />
-
-    <Button
-        android:id="@+id/btSalvarDonoCad"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="#006400"
-        android:onClick="bt_slvcadastro_telacadastrodono_to_telacadastros"
-        android:text="@string/bt_salvarcadastro_caddono"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BtAddPetCadDono" />
-
-    <Button
-        android:id="@+id/BtAddPetCadDono"
-        android:layout_width="400dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/teal_700"
-        android:onClick="bt_adicionarpets_telacadastrodono_to_telacadastropet"
-        android:text="@string/br_adicionarpets_caddono"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        tools:ignore="TextContrastCheck" />
-
     <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="401dp"
-        android:layout_height="261dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/BtAddPetCadDono"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPets">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ListView
-                android:id="@+id/ListPetsCadDono"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="259dp"
-                android:backgroundTint="@color/white"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
+                android:layout_height="match_parent">
+
+                <ScrollView
+                    android:id="@+id/scrollView2"
+                    android:layout_width="401dp"
+                    android:layout_height="261dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/TextPets">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ListView
+                            android:id="@+id/ListPetsCadDono"
+                            android:layout_width="match_parent"
+                            android:layout_height="259dp"
+                            android:backgroundTint="#FFFFFF"
+                            android:cacheColorHint="#FFFFFF"
+                            android:textColor="#FFFFFF"
+                            android:textColorHint="#FFFFFF" />
+                    </LinearLayout>
+                </ScrollView>
+
+                <EditText
+                    android:id="@+id/TextNomeDonoCad"
+                    android:layout_width="400dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/white"
+                    android:ems="10"
+                    android:hint="@string/text_nomedono_caddono"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/TextPets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/text_listapets_caddono"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/BtAddPetCadDono" />
+
+                <EditText
+                    android:id="@+id/textCPFDonoCad"
+                    android:layout_width="400dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/white"
+                    android:ems="10"
+                    android:hint="@string/text_cpfdono_caddono"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textTelDonoCad" />
+
+                <Button
+                    android:id="@+id/btSalvarDonoCad"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="#006400"
+                    android:onClick="bt_slvcadastro_telacadastrodono_to_telacadastros"
+                    android:text="@string/bt_salvarcadastro_caddono"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+                <EditText
+                    android:id="@+id/textTelDonoCad"
+                    android:layout_width="400dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/white"
+                    android:ems="10"
+                    android:hint="@string/text_telefonedono_caddono"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/TextNomeDonoCad" />
+
+                <EditText
+                    android:id="@+id/textEndDonoCad"
+                    android:layout_width="400dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/white"
+                    android:ems="10"
+                    android:hint="@string/text_enderecodono_caddono"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textCPFDonoCad" />
+
+                <Button
+                    android:id="@+id/btCancelarDonoCad"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#730000"
+                    android:onClick="bt_finish_telacadastrodono"
+                    android:text="@string/bt_cancelar_caddono"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+                <Button
+                    android:id="@+id/BtAddPetCadDono"
+                    android:layout_width="400dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="@color/teal_700"
+                    android:onClick="bt_adicionarpets_telacadastrodono_to_telacadastropet"
+                    android:text="@string/br_adicionarpets_caddono"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textEndDonoCad"
+                    tools:ignore="TextContrastCheck" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
     </ScrollView>
 

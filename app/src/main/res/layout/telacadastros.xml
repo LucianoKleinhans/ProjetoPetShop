@@ -9,41 +9,14 @@
     tools:context=".activity.telacadastros">
 
     <Button
-        android:id="@+id/btbusca"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:textAlignment="center"
-        android:onClick="bt_busca_telacadastros"
-        app:icon="@android:drawable/ic_menu_search"
-        app:iconGravity="top"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ListView
-        android:id="@+id/tabelacadastros"
-        android:layout_width="wrap_content"
-        android:layout_height="500dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="1dp"
-        android:cacheColorHint="#FFFFFF"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btbusca" />
-
-    <Button
         android:id="@+id/btvoltar"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
-        android:layout_marginBottom="50dp"
-        android:text="@string/bt_voltar_cadastros"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#730000"
         android:onClick="bt_finish_telacadastros"
+        android:text="@string/bt_voltar_cadastros"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,26 +25,36 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="50dp"
-        android:text="@string/bt_adicionar_cadastros"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#006400"
         android:onClick="bt_cadastros_to_telacadastrodono"
+        android:text="@string/bt_adicionar_cadastros"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/text_pesquisa_cadastros"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textColor="#ffffff"
-        android:textColorHint="#B6B6B6"
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="wrap_content"
+        android:layout_height="650dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/tabelacadastros"
+                android:layout_width="407dp"
+                android:layout_height="650dp"
+                android:cacheColorHint="#FFFFFF"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

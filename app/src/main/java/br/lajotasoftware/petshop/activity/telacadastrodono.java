@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import androidx.activity.result.ActivityResult;
@@ -87,8 +88,10 @@ public class telacadastrodono extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==1){
-            Pets pets= (Pets) data.getSerializableExtra("Pets");
-            dono.setPets(pets);
+            if(data!=null){
+                Pets pets= (Pets) data.getSerializableExtra("Pets");
+                dono.setPets(pets);
+            }
         }
     }
 

@@ -154,9 +154,4 @@ public class telaselecionaservico extends AppCompatActivity {
         setResult(RESULT_OK,it);
         onBackPressed();
     }
-
-    public void bt_confirmar_telaselecionaservico_to_telacadastroservicos (View view){
-        Intent it = new Intent(this, telacadastroservicos.class);
-        startActivity(it);
-    }
 }
