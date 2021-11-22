@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BFBFBF"
-    android:backgroundTint="#202020"
+    android:background="#3C3C3C"
     tools:context=".activity.telaselecionaservico">
 
     <ScrollView
@@ -30,7 +29,7 @@
                 android:layout_marginStart="1dp"
                 android:layout_marginEnd="1dp"
                 android:layout_marginBottom="10dp"
-                android:cacheColorHint="#BFBFBF"
+                android:cacheColorHint="#3C3C3C"
                 android:foregroundTint="#C8C8C8"
                 android:textColor="@color/white" />
         </LinearLayout>

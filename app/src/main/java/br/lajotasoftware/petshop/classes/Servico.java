@@ -51,7 +51,7 @@ public class Servico implements Serializable {
     }
 
     public String toString() {
-        return  nome + " -" + preco;
+        return  nome + " - " + preco;
     }
 
     private static FirebaseDatabase firebaseDatabase;

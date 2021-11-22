@@ -58,7 +58,7 @@ public class Pets implements Serializable {
 
     @Override
     public String toString() {
-        return nome +"-"+ especie;
+        return nome +" - "+ especie;
     }
 
 }

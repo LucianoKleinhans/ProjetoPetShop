@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:backgroundTint="#202020"
+    android:background="#3C3C3C"
     tools:context=".activity.telaadicionaservico">
 
     <Button
@@ -14,9 +13,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="50dp"
-        android:text="@string/bt_voltar_addservico"
-        android:onClick="bt_finish_telaadicionaservico"
         android:backgroundTint="#730000"
+        android:onClick="bt_finish_telaadicionaservico"
+        android:text="@string/bt_voltar_addservico"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textprecoserv" />
 
@@ -26,9 +25,9 @@
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="5dp"
-        android:text="@string/bt_concluir_addservico"
         android:backgroundTint="#006400"
         android:onClick="bt_concluir_telaadicionaservico_to_telaselecionaservico"
+        android:text="@string/bt_concluir_addservico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textprecoservP" />
 

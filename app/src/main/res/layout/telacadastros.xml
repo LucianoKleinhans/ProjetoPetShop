@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:backgroundTint="#202020"
+    android:background="#3C3C3C"
     tools:context=".activity.telacadastros">
 
     <Button
@@ -52,8 +51,7 @@
                 android:id="@+id/tabelacadastros"
                 android:layout_width="407dp"
                 android:layout_height="650dp"
-                android:cacheColorHint="#FFFFFF"
-                android:textColor="#FFFFFF" />
+                android:cacheColorHint="#3C3C3C" />
         </LinearLayout>
     </ScrollView>
 

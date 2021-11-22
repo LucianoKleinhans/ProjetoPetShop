@@ -35,7 +35,7 @@ public class CadServico implements Serializable {
     private String Total;
 
     public String toString() {
-        return "Dono: "+ NomeDono +" -- Pet: "+ NomePet + " -- Preco total: " + Total;
+        return "Dono: "+NomeDono+" - Pet: "+NomePet+"- Total:"+Total;
     }
 
     public CadServico(String id) {
@@ -266,10 +266,8 @@ public class CadServico implements Serializable {
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
-
             }
         }else {
             if (databaseReference == null){
@@ -309,12 +307,9 @@ public class CadServico implements Serializable {
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
-
             }
-
         }
     }
 }
