@@ -1,5 +1,7 @@
 package br.lajotasoftware.petshop.classes;
 
+import android.graphics.Bitmap;
+
 import java.io.Serializable;
 
 public class Pets implements Serializable {
@@ -9,6 +11,7 @@ public class Pets implements Serializable {
     private String raca;
     private String datanascimento;
     private String observacao;
+    private Bitmap foto;
 
     public Pets(Integer id) {
         this.id = id;
@@ -63,6 +66,14 @@ public class Pets implements Serializable {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public Bitmap getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Bitmap foto) {
+        this.foto = foto;
     }
 
     @Override
