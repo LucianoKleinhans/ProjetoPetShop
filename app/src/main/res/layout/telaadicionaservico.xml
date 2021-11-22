@@ -16,7 +16,6 @@
         android:layout_marginTop="50dp"
         android:text="@string/bt_voltar_addservico"
         android:onClick="bt_finish_telaadicionaservico"
-        android:backgroundTint="#730000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textprecoserv" />
 
@@ -27,38 +26,30 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="5dp"
         android:text="@string/bt_concluir_addservico"
-        android:backgroundTint="#006400"
         android:onClick="bt_concluir_telaadicionaservico_to_telaselecionaservico"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textprecoservP" />
 
     <EditText
         android:id="@+id/textnomeservP"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="#FFFFFF"
         android:ems="10"
-        android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textnomeserv"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/textnomeserv"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:gravity="center"
         android:text="@string/text_nomeservico_addservico"
-        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
@@ -67,28 +58,23 @@
         android:id="@+id/textprecoserv"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="5dp"
-        android:gravity="center"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="1dp"
         android:text="@string/text_precoservico_addservico"
-        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textnomeserv"
         tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/textprecoservP"
-        android:layout_width="0dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_marginStart="1dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="#FFFFFF"
+        android:layout_marginTop="1dp"
         android:ems="10"
-        android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textprecoserv"
         app:layout_constraintTop_toBottomOf="@+id/textnomeservP"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
 </androidx.constraintlayout.widget.ConstraintLayout>

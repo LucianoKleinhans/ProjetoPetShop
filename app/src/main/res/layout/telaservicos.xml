@@ -9,40 +9,12 @@
     android:foregroundTint="#FFFFFF"
     tools:context=".activity.telaservicos">
 
-    <ScrollView
-        android:id="@+id/scrollView4"
-        android:layout_width="wrap_content"
-        android:layout_height="650dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ListView
-                android:id="@+id/ListaServicos"
-                android:layout_width="wrap_content"
-                android:layout_height="650dp"
-                android:backgroundTint="@color/white"
-                android:cacheColorHint="@color/white"
-                android:foregroundTint="#FFFFFF"
-                android:textColor="#FFFFFF"
-                android:textColorHint="@color/white" />
-        </LinearLayout>
-    </ScrollView>
-
     <Button
         android:id="@+id/BtNovoServico"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="@color/teal_700"
         android:onClick="bt_servico_to_telacadastroservico"
         android:text="@string/bt_novoservico_servico"
@@ -55,12 +27,30 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginStart="5dp"
-        android:layout_marginBottom="5dp"
-        android:backgroundTint="#730000"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/teal_700"
         android:onClick="bt_finish_telaservicos"
         android:text="@string/Bt_voltar_servico"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextContrastCheck" />
 
+    <ListView
+        android:id="@+id/ListaServicos"
+        android:layout_width="387dp"
+        android:layout_height="530dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="21dp"
+        android:backgroundTint="@color/white"
+        android:cacheColorHint="@color/white"
+        android:foregroundTint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/BtNovoServico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
