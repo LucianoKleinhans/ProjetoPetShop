@@ -312,4 +312,54 @@ public class CadServico implements Serializable {
             }
         }
     }
+    public static void finaliza(CadServico cs) {
+
+        if (databaseReference == null){
+            inicio();
+            List<CadServico> cadServicos = new ArrayList();
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    DataSnapshot dataSnapshot = snapshot.child("CadServicoFinalizado");
+                    cadServicos.clear();
+                    for (DataSnapshot cadsSnapshot : dataSnapshot.getChildren()){
+                        CadServico cadServico = cadsSnapshot.getValue(CadServico.class);
+                        cadServicos.add(cadServico);
+                    }
+                    String id = (Integer.parseInt(cadServicos.get(cadServicos.size() - 1).getId()) + 1) + "";
+                    databaseReference.child("CadServicoFinalizado").child(id).child("id").setValue(id);
+                    databaseReference.child("CadServicoFinalizado").child(id).child("IDDono").setValue(cs.getIDDono());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("NomeDono").setValue(cs.getNomeDono());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("TelefoneDono").setValue(cs.getTelefoneDono());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("EnderecoDono").setValue(cs.getEnderecoDono());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("CPFDono").setValue(cs.getCPFDono());
+
+                    databaseReference.child("CadServicoFinalizado").child(id).child("IDPet").setValue(cs.getIdpet());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("NomePet").setValue(cs.getNomePet());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("RacaPet").setValue(cs.getRacaPet());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("EspeciePet").setValue(cs.getEspeciePet());
+
+                    databaseReference.child("CadServicoFinalizado").child(id).child("NomeServico1").setValue(cs.getNomeServico1());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("PrecoServico1").setValue(cs.getPrecoServico1());
+
+                    databaseReference.child("CadServicoFinalizado").child(id).child("NomeServico2").setValue(cs.getNomeServico2());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("PrecoServico2").setValue(cs.getPrecoServico2());
+
+                    databaseReference.child("CadServicoFinalizado").child(id).child("NomeServico3").setValue(cs.getNomeServico3());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("PrecoServico3").setValue(cs.getPrecoServico3());
+
+                    databaseReference.child("CadServicoFinalizado").child(id).child("NomeServico4").setValue(cs.getNomeServico4());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("PrecoServico4").setValue(cs.getPrecoServico4());
+
+                    databaseReference.child("CadServicoFinalizado").child(id).child("Subtotal").setValue(cs.getSubtotal());
+                    databaseReference.child("CadServicoFinalizado").child(id).child("Total").setValue(cs.getTotal());
+
+                    databaseReference = null;
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
+        }
+    }
 }

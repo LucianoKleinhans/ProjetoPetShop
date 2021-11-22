@@ -72,14 +72,12 @@ public class telaselecionaservico extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Editar", Toast.LENGTH_LONG).show();
                 editar(position);
-                finish();
             } });
         adb.setNeutralButton("Excluir", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Servico Excluido", Toast.LENGTH_LONG).show();
                 Servico s = servicos.get(position);
                 databaseReference.child("Servico").child(s.getId()).removeValue();
-                finish();
             } });
         AlertDialog alertDialog = adb.create();
         alertDialog.show();

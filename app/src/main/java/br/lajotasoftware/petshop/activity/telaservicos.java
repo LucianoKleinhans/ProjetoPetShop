@@ -63,23 +63,27 @@ public class telaservicos extends AppCompatActivity {
         adb.setPositiveButton("Finalizar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Servico finalizado", Toast.LENGTH_LONG).show();
-                //seleciona(position);
+                CadServico cs = cadServicos.get(position);
+                finalizarServico(cs);
+                databaseReference.child("CadServico").child(cs.getId()).removeValue();
             } });
         adb.setNegativeButton("Editar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Editar", Toast.LENGTH_LONG).show();
                 editar(position);
-                finish();
             } });
         adb.setNeutralButton("Excluir", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Servico Excluido", Toast.LENGTH_LONG).show();
                 CadServico cs = cadServicos.get(position);
                 databaseReference.child("CadServico").child(cs.getId()).removeValue();
-                finish();
             } });
         AlertDialog alertDialog = adb.create();
         alertDialog.show();
+    }
+
+    private void finalizarServico(CadServico cs) {
+        CadServico.finaliza(cs);
     }
 
     ArrayAdapter arrayAdapter;
@@ -139,8 +143,8 @@ public class telaservicos extends AppCompatActivity {
     }
 
     private void novo() {
-        Intent it1 = new Intent(this, telacadastroservicos.class);
-        it1.putExtra("CadServico", new CadServico());
-        someActivityResultLauncher.launch(it1);
+        Intent it = new Intent(this, telacadastroservicos.class);
+        it.putExtra("CadServico", new CadServico());
+        someActivityResultLauncher.launch(it);
     }
 }

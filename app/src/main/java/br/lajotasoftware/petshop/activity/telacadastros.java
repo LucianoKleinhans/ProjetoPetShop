@@ -63,7 +63,6 @@ public class telacadastros extends AppCompatActivity{
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(), "Selecionou", Toast.LENGTH_LONG).show();
                 seleciona(position);
-                finish();
             } });
         adb.setNegativeButton("Editar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogInterface, int which) {
@@ -74,8 +73,7 @@ public class telacadastros extends AppCompatActivity{
             public void onClick(DialogInterface dialogInterface, int which) {
               Toast.makeText(getApplicationContext(), "Cadastro Excluido", Toast.LENGTH_LONG).show();
               Dono d = donos.get(position);
-              databaseReference.child("Dono").child(d.getId()).removeValue();
-              finish();
+              databaseReference.child("Dono").child(d.getId()).removeValue();;
             } });
         AlertDialog alertDialog = adb.create();
         alertDialog.show();
