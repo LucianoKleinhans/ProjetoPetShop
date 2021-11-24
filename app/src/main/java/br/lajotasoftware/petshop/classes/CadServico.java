@@ -234,7 +234,14 @@ public class CadServico implements Serializable {
                             CadServico cadServico = cadsSnapshot.getValue(CadServico.class);
                             cadServicos.add(cadServico);
                         }
-                        String id = (Integer.parseInt(cadServicos.get(cadServicos.size() - 1).getId()) + 1) + "";
+
+                        String id;
+                        if(cadServicos.size()==0){
+                            id = "1";
+
+                        } else {
+                            id = (Integer.parseInt(cadServicos.get(cadServicos.size() - 1).getId()) + 1) + "";
+                        }
                         databaseReference.child("CadServico").child(id).child("id").setValue(id);
                         databaseReference.child("CadServico").child(id).child("IDDono").setValue(cs.getIDDono());
                         databaseReference.child("CadServico").child(id).child("NomeDono").setValue(cs.getNomeDono());

@@ -1,5 +1,8 @@
 package br.lajotasoftware.petshop.classes;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -108,14 +111,23 @@ public class Dono implements Serializable {
                             Dono dono = postSnapshot.getValue(Dono.class);
                             donos.add(dono);
                         }
-                        String id = (Integer.parseInt(donos.get(donos.size() - 1).getId()) + 1) + "";
+                        String id;
+                        if(donos.size()==0){
+                            id = "1";
+                        } else {
+                            id = (Integer.parseInt(donos.get(donos.size() - 1).getId()) + 1) + "";
+                        }
                         databaseReference.child("Dono").child(id).child("id").setValue(id);
                         databaseReference.child("Dono").child(id).child("nome").setValue(d.getNome());
                         databaseReference.child("Dono").child(id).child("endereco").setValue(d.getEndereco());
                         databaseReference.child("Dono").child(id).child("CPF").setValue(d.getCPF());
                         databaseReference.child("Dono").child(id).child("telefone").setValue(d.getTelefone());
+                        if (pets==null) {
+                        }
+                        else {
                         for (int i = 0; i < pets.size(); i++) {
                             databaseReference.child("Dono").child(id).child("Pets").setValue(d.getPets());
+                        }
                         }
                         databaseReference=null;
                     }
