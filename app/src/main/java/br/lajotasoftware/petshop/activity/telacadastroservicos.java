@@ -201,8 +201,6 @@ public class telacadastroservicos extends AppCompatActivity {
     }
     public void bt_finish_telacadastroservicos (View view){
         finish();
-        //Intent it = new Intent(this, telaservicos.class);
-        //startActivity(it);
     }
     public void bt_concluir_telacadastroservicos_to_telaservicos (View view){
         cadServico.setIDDono(IDDono);
@@ -225,7 +223,7 @@ public class telacadastroservicos extends AppCompatActivity {
         cadServico.setSubtotal(SubTotal.toString());
         cadServico.setTotal(txtValorTotal.getText().toString());
         cadServico.salvar(cadServico);
-        onBackPressed();
+        finish();
     }
     public void setDatabaseReference(DatabaseReference databaseReference) {
         this.databaseReference = databaseReference;

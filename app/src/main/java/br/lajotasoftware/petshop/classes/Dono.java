@@ -1,6 +1,7 @@
 package br.lajotasoftware.petshop.classes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -122,16 +123,13 @@ public class Dono implements Serializable {
                         databaseReference.child("Dono").child(id).child("endereco").setValue(d.getEndereco());
                         databaseReference.child("Dono").child(id).child("CPF").setValue(d.getCPF());
                         databaseReference.child("Dono").child(id).child("telefone").setValue(d.getTelefone());
-                        if (pets==null) {
-                        }
-                        else {
-                        for (int i = 0; i < pets.size(); i++) {
-                            databaseReference.child("Dono").child(id).child("Pets").setValue(d.getPets());
-                        }
+                        if (pets!=null) {
+                            for (int i = 0; i < pets.size(); i++) {
+                                databaseReference.child("Dono").child(id).child("Pets").setValue(d.getPets());
+                            }
                         }
                         databaseReference=null;
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                     }
@@ -151,16 +149,13 @@ public class Dono implements Serializable {
                         databaseReference.child("Dono").child(id).child("telefone").setValue(d.getTelefone());
                         int idpet = d.getPets().size()+1;
                         for (int i = idpet; i < pets.size(); i++) {
-                            //databaseReference.child("Dono").child(id).child("Pets").child(i)
                             databaseReference.child("Dono").child(id).child("Pets").setValue(d.getPets());
                             databaseReference=null;
                         }
                         databaseReference=null;
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
             }

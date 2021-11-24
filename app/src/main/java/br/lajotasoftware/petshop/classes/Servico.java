@@ -83,15 +83,13 @@ public class Servico implements Serializable {
                         String id;
                         if(servicos.size()==0){
                             id = "1";
-
                         } else {
                             id = (Integer.parseInt(servicos.get(servicos.size() - 1).getId()) + 1) + "";
                         }
-                            databaseReference.child("Servico").child(id).child("id").setValue(id);
-                            databaseReference.child("Servico").child(id).child("nome").setValue(s.getNome());
-                            databaseReference.child("Servico").child(id).child("preco").setValue(s.getPreco());
-                            databaseReference = null;
-
+                        databaseReference.child("Servico").child(id).child("id").setValue(id);
+                        databaseReference.child("Servico").child(id).child("nome").setValue(s.getNome());
+                        databaseReference.child("Servico").child(id).child("preco").setValue(s.getPreco());
+                        databaseReference = null;
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

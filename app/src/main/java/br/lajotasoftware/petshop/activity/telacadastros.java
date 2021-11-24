@@ -128,12 +128,8 @@ public class telacadastros extends AppCompatActivity{
             }
         }
     });
-
     private void doSomeOperations() {
         listar();
-    }
-
-    public void bt_busca_telacadastros(View view) {
     }
 
     private void editar(int position) {
