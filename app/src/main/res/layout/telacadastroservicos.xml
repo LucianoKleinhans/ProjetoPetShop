@@ -286,7 +286,7 @@
         android:contentDescription="@string/img_pet_cadservico"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:srcCompat="@mipmap/imgpetshop" />
+        app:srcCompat="@mipmap/ic_channel_foreground" />
 
     <TextView
         android:id="@+id/txtServicoNome1"

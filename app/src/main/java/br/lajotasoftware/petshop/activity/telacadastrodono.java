@@ -79,7 +79,6 @@ public class telacadastrodono extends AppCompatActivity {
 
     public void bt_adicionarpets_telacadastrodono_to_telacadastropet (View view){
         Intent it = new Intent(this, telacadastropet.class);
-        //it.putExtra("Pets",new Pets(pets.size()+1));
         it.putExtra("Pets",new Pets());
         startActivityForResult(it,1);
     }
@@ -97,8 +96,6 @@ public class telacadastrodono extends AppCompatActivity {
 
     public void bt_finish_telacadastrodono (View view){
         finish();
-        //Intent it = new Intent(this, telacadastros.class);
-        //startActivity(it);
     }
 
     public void bt_slvcadastro_telacadastrodono_to_telacadastros (View view){

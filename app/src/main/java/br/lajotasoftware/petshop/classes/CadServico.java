@@ -35,7 +35,7 @@ public class CadServico implements Serializable {
     private String Total;
 
     public String toString() {
-        return "Dono: "+NomeDono+" - Pet: "+NomePet+"- Total:"+Total;
+        return "Dono: "+NomeDono+" - Pet: "+NomePet+" - Total: R$"+Total;
     }
 
     public CadServico(String id) {

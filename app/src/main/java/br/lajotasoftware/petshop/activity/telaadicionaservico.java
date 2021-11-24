@@ -42,8 +42,6 @@ public class telaadicionaservico extends AppCompatActivity {
 
     public void bt_finish_telaadicionaservico (View view){
         finish();
-        //Intent it = new Intent(this, telaselecionaservico.class);
-        //startActivity(it);
     }
 
     public void bt_concluir_telaadicionaservico_to_telaselecionaservico (View view){

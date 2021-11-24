@@ -38,8 +38,6 @@ public class telacadastropet extends AppCompatActivity {
 
     public void bt_finish_telacadastropet(View view){
         finish();
-        //Intent it = new Intent(this, telacadastroservicos.class);
-        //startActivity(it);
     }
 
     public void bt_slvcadastro_telacadastropet_to_telacadastroservicos(View view){
